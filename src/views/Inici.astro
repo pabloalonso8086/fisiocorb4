@@ -17,6 +17,12 @@ const fases = raw("inici.fases.llista") as any[];
 const serveis = raw("inici.serveis.llista") as any[];
 const valors = raw("inici.sobreMi.valors") as any[];
 const ressenyes = raw("inici.ressenyes.llista") as any[];
+const xifres = [
+  { valor: negoci.notaGoogle as string, sufix: "★", etiqueta: t("inici.xifres.nota") },
+  { valor: negoci.numRessenyes as string, sufix: "", etiqueta: t("inici.xifres.ressenyes") },
+  { valor: String(new Date().getFullYear() - Number(negoci.anyInici)), sufix: "+", etiqueta: t("inici.xifres.anys") },
+  { valor: negoci.radiDomicili as string, sufix: "km", etiqueta: t("inici.xifres.km") },
+];
 const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.pregunta), resposta: hf(f.resposta), preguntaText: p(f.pregunta), respostaText: p(f.resposta).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") }));
 ---
 <BaseLayout
@@ -29,7 +35,9 @@ const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.preg
 >
   <!-- HERO -->
   <section id="inici" class="hero-fons mx-auto flex max-w-site flex-wrap lg:flex-nowrap items-stretch">
-    <div class="hero-fons-text flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
+    <!-- Fons «ambient» (escriptori): la mateixa foto, molt desenfocada i al 25 %, a tot l\'ample -->
+    <img src="/img/fisioterapeuta-valoracio-genoll-fons.webp" alt="" aria-hidden="true" class="hero-ambient" />
+    <div class="hero-fons-text flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:pb-32 lg:pt-16 xl:pl-20 xl:pr-10">
       <h1 class="rise mb-6 font-display text-[13px] font-bold uppercase leading-relaxed tracking-[0.22em] text-ink-soft sm:text-[15px]">{t("inici.hero.h1")}</h1>
       <p class="h-display rise text-[clamp(40px,5.2vw,76px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("inici.hero.titol")} />
       <div class="drawbar mb-7 mt-10 h-1.5 w-[68px] bg-groc" aria-hidden="true"></div>
@@ -39,8 +47,26 @@ const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.preg
         <Button href={r("comTreballo")} variant="enllac">{t("inici.hero.enllac")}</Button>
       </div>
     </div>
-    <div class="hero-fons-img relative h-[320px] min-w-0 flex-[1.3_1_600px] self-center overflow-hidden sm:h-[440px] lg:h-[600px]">
+    <div class="hero-fons-img relative h-[320px] min-w-0 flex-[1.3_1_600px] self-center lg:self-stretch overflow-hidden sm:h-[440px] lg:h-[clamp(560px,82svh,820px)]">
       <img src="/img/fisioterapeuta-valoracio-genoll.webp" alt={t("inici.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover object-[60%_center]" />
+    </div>
+  </section>
+
+  <!-- XIFRES: franja de confiança just després del hero. Dades de `negoci` (textos.json);
+       els anys es calculen en compilar a partir de negoci.anyInici. -->
+  <!-- En escriptori és una barra blanca flotant que puja i se solapa amb la part de baix del hero -->
+  <section aria-label={t("inici.xifres.etiqueta")} class="border-y border-line lg:relative lg:z-10 lg:-mt-16 lg:border-0">
+    <div class="mx-auto max-w-site px-5 sm:px-8 xl:px-20">
+    <dl class="grid grid-cols-2 lg:grid-cols-4 lg:bg-white lg:px-6 lg:shadow-[0_18px_44px_rgba(20,20,20,.12)] xl:px-8">
+      {xifres.map((x, i) => (
+        <div class:list={["reveal flex flex-col-reverse gap-2 px-4 py-8 sm:px-6 lg:px-8 lg:py-10", i % 2 === 0 && "pl-0 sm:pl-0", i === 0 && "lg:pl-0", i === 2 && "lg:pl-8 lg:border-l", i % 2 === 1 && "border-l", i < 2 && "max-lg:border-b", "border-line"]} style={`--d:${i * 0.1}s`}>
+          <dt class="font-display text-[13px] font-bold uppercase leading-snug tracking-[0.14em] text-ink-soft sm:text-sm">{x.etiqueta}</dt>
+          <dd class="font-display text-[clamp(40px,4.6vw,64px)] font-extrabold leading-none tracking-[-0.02em]">
+            <span class="tabular-nums" data-count={x.valor}>{x.valor}</span><span class:list={["ml-1 text-groc", x.sufix.length > 1 && "text-[.45em] tracking-normal"]} aria-hidden="true">{x.sufix}</span>
+          </dd>
+        </div>
+      ))}
+    </dl>
     </div>
   </section>
 
@@ -59,7 +85,9 @@ const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.preg
   </section>
 
   <!-- COM TREBALLO -->
-  <section id="com-treballo" class="mt-16 bg-sand lg:mt-[72px]">
+  <section id="com-treballo" class="relative isolate mt-16 overflow-hidden bg-sand lg:mt-[72px]">
+    <!-- Mà del logo en gran, com a marca d'aigua (decorativa). Estils a global.css (.marca-ma) -->
+    <div class="marca-ma" aria-hidden="true"></div>
     <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
       <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
         <div>
@@ -68,10 +96,12 @@ const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.preg
         </div>
         <p class="max-w-[460px] text-[19px] leading-normal">{t("inici.fases.intro")}</p>
       </div>
-      <ol class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10">
+      <!-- Procés: cada fase és un node unit a la següent per una línia que s'omple en groc,
+           una fase rere l'altra, quan la llista entra en pantalla (.reveal-trigger → .in). Estils a global.css (.proces) -->
+      <ol class="proces reveal-trigger grid gap-10 lg:grid-cols-4">
         {fases.map((f, i) => (
-          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
-            <p class="mb-4 font-display text-[44px] font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+          <li style={`--i:${i}`}>
+            <span class="proces-node font-display" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
             <h3 class="mb-2.5 font-display text-[21px] font-extrabold uppercase">{p(f.titol)}</h3>
             <p class="text-[17px] leading-relaxed">{p(f.text)}</p>
           </li>
@@ -90,15 +120,21 @@ const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.preg
       <div class="drawbar-view reveal-trigger h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
       <h2 class="font-display text-[15px] font-bold uppercase tracking-[0.3em]">{t("inici.serveis.titol")}</h2>
     </div>
-    <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+    <!-- Targetes de servei: fons blanc, franja groga que creix en passar-hi per sobre i petita elevació.
+         No són un sol enllaç perquè algunes en tenen dos (consulta i bici). Estils a global.css (.servei-card) -->
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {serveis.map((s, i) => (
-        <div class:list={["reveal group pb-2 sm:px-6 lg:px-10", i > 0 && "border-t border-line pt-8 sm:border-t-0 sm:pt-0", i % 2 === 1 && "sm:border-l sm:border-line", i > 0 && "lg:border-l lg:border-line", i === 0 && "sm:pl-0", i === 2 && "sm:pl-0 lg:pl-10", i === 3 && "lg:pr-0"]} style={`--d:${i * 0.1}s`}>
-          <div class="transition-transform duration-300 group-hover:-translate-y-1"><ServeiIcon name={s.icona} /></div>
-          <h3 class="mb-3 mt-4 font-display text-2xl font-extrabold leading-[1.1]" set:html={hf(s.titol)} />
-          <p class="mb-3.5 text-lg leading-[1.45]">{p(s.text)}</p>
-          {s.enllacos.map((e: any) => (
-            <a href={r(e.ruta)} class="link-arrow flex min-h-11 items-center gap-2.5 text-base font-bold no-underline">{p(e.text)} <Arrow size={18} /></a>
-          ))}
+        <div class="reveal" style={`--d:${i * 0.1}s`}>
+          <article class="servei-card group flex h-full flex-col bg-white p-7 sm:p-8">
+            <div class="transition-transform duration-300 group-hover:-translate-y-1"><ServeiIcon name={s.icona} /></div>
+            <h3 class="mb-3 mt-5 font-display text-2xl font-extrabold leading-[1.1]" set:html={hf(s.titol)} />
+            <p class="mb-5 text-lg leading-[1.45]">{p(s.text)}</p>
+            <div class="mt-auto border-t border-line pt-3">
+              {s.enllacos.map((e: any) => (
+                <a href={r(e.ruta)} class="link-arrow flex min-h-11 items-center justify-between gap-2.5 text-base font-bold no-underline">{p(e.text)} <Arrow size={18} /></a>
+              ))}
+            </div>
+          </article>
         </div>
       ))}
     </div>

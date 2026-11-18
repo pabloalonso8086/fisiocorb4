@@ -197,6 +197,83 @@
   }
 }
 
+/* Hero en escriptori: fons «ambient». *-fons.webp són versions petites (480px) i ja desenfocades
+   de la foto del hero; s'estiren a tot l'ample de la finestra al 25 % i es fonen cap avall amb el fons.
+   (El sobrant per la barra de desplaçament el retalla l'overflow-x-clip del <main>.) */
+.hero-ambient { display: none; }
+@media (min-width: 1024px) {
+  .hero-fons { position: relative; isolation: isolate; }
+  .hero-ambient {
+    display: block; position: absolute; z-index: -1; pointer-events: none;
+    top: 0; left: 50%; width: 100vw; max-width: none; height: 100%;
+    transform: translateX(-50%); object-fit: cover; opacity: .25;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+            mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  }
+}
+
+/* Procés en fases (inici): nodes numerats units per línies.
+   Mòbil: nodes a l'esquerra i línia vertical. Escriptori (lg): nodes a dalt i línia horitzontal.
+   Cada tram (::before = via gris, ::after = farciment groc) va del node actual al següent.
+   Quan la llista rep .in, cada node s'encén i el seu tram s'omple, un rere l'altre (--i). */
+.proces { --node: 56px; --gap: 2.5rem; --pas: .45s; }
+.proces > li { position: relative; padding-left: calc(var(--node) + 1.25rem); min-height: var(--node); }
+.proces-node {
+  position: absolute; top: 0; left: 0; z-index: 1;
+  display: grid; place-items: center; width: var(--node); height: var(--node); border-radius: 9999px;
+  border: 2px solid var(--color-ink); background: var(--color-groc);
+  font-size: 18px; font-weight: 800; letter-spacing: .02em;
+  transition: background-color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--i) * var(--pas));
+}
+.proces > li:not(:last-child)::before,
+.proces > li:not(:last-child)::after {
+  content: ""; position: absolute; background: var(--color-line);
+  left: calc(var(--node) / 2 - 1px); top: var(--node); width: 2px; height: calc(100% - var(--node) + var(--gap));
+}
+.proces > li:not(:last-child)::after {
+  background: var(--color-groc); transform-origin: top;
+  transition: transform var(--pas) linear; transition-delay: calc(var(--i) * var(--pas) + .2s);
+}
+@media (min-width: 1024px) {
+  .proces > li { padding-left: 0; padding-top: calc(var(--node) + 1.5rem); }
+  .proces > li:not(:last-child)::before,
+  .proces > li:not(:last-child)::after {
+    left: var(--node); top: calc(var(--node) / 2 - 1px); height: 2px; width: calc(100% - var(--node) + var(--gap));
+  }
+  .proces > li:not(:last-child)::after { transform-origin: left; }
+}
+/* Estat inicial només amb JS (sense JS es veu tot encès) */
+.js .proces:not(.in) .proces-node { background: var(--color-paper); transform: scale(.85); }
+.js .proces:not(.in) > li::after { transform: scaleY(0); }
+@media (min-width: 1024px) { .js .proces:not(.in) > li::after { transform: scaleX(0); } }
+
+/* Targetes de servei (inici) */
+.servei-card { position: relative; transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease; box-shadow: 0 1px 0 rgb(20 20 20 / .04); }
+.servei-card::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--color-groc);
+  transform: scaleX(.18); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.servei-card:hover, .servei-card:focus-within { transform: translateY(-4px); box-shadow: 0 14px 34px rgb(20 20 20 / .09); }
+.servei-card:hover::before, .servei-card:focus-within::before { transform: scaleX(1); }
+
+/* Mà del logo en gran com a marca d'aigua. marca-ma.png és la silueta ampliada de logo_ma.png;
+   s'usa com a màscara perquè el color i la intensitat es controlin des d'aquí. */
+.marca-ma {
+  position: absolute; z-index: -1; pointer-events: none;
+  width: clamp(340px, 48vw, 720px); aspect-ratio: 688 / 612;
+  right: -14%; bottom: -18%;
+  background: var(--color-ink); opacity: .05;
+  -webkit-mask: url(/img/marca-ma.png) center / contain no-repeat;
+          mask: url(/img/marca-ma.png) center / contain no-repeat;
+  transform: rotate(-14deg);
+}
+@media (min-width: 1024px) { .marca-ma { right: -4%; bottom: -22%; } }
+/* Variants: --clar per a fons foscos; --esq la posa a l'esquerra, a dalt i girada a l'altre costat */
+.marca-ma--clar { background: #fff; opacity: .045; }
+.marca-ma--esq { right: auto; bottom: auto; left: -16%; top: -20%; transform: rotate(16deg) scaleX(-1); }
+@media (min-width: 1024px) { .marca-ma--esq { right: auto; bottom: auto; left: -6%; top: -26%; } }
+
 /* Text llarg (blog i textos legals) */
 .prose-fisio { font-size: 19px; line-height: 1.7; }
 .prose-fisio > * + * { margin-top: 1.1em; }
@@ -228,5 +305,9 @@
   .logo-box img { transition: none !important; opacity: calc(1 - var(--p)); }
   .logo-box img.logo-c { display: block; opacity: var(--p); }
   .btn, .btn:hover { transform: none; }
+  .proces-node, .proces > li::after, .servei-card, .servei-card::before { transition: none !important; }
+  .js .proces:not(.in) .proces-node { background: var(--color-groc); transform: none; }
+  .js .proces:not(.in) > li::after { transform: none !important; }
+  .servei-card:hover, .servei-card:focus-within { transform: none; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

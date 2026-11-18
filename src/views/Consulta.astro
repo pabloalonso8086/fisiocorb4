@@ -20,6 +20,8 @@ const onIQuan = [
 <BaseLayout lang={lang} title={t("consulta.seo.titol")} description={t("consulta.seo.descripcio")} alternates={alternates} actiu="consulta">
   <!-- HERO -->
   <section id="bellpuig" class="hero-fons mx-auto flex max-w-site flex-wrap lg:flex-nowrap items-stretch">
+    <!-- Fons «ambient» (escriptori): la mateixa foto, molt desenfocada i al 25 %, a tot l\'ample -->
+    <img src="/img/fisioterapeuta-valoracio-espatlla-fons.webp" alt="" aria-hidden="true" class="hero-ambient" />
     <div class="hero-fons-text flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
       <div class="mb-7 flex items-center gap-4">
         <div class="drawbar h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
@@ -30,7 +32,7 @@ const onIQuan = [
       <div class="rise" style="--d:.45s"><Button href={negoci.whatsapp}>{t("consulta.hero.boto")}</Button></div>
     </div>
     <!-- Foto provisional: substituir per una foto en blanc i negre de la sala de Bellpuig -->
-    <div class="hero-fons-img relative h-[300px] min-w-0 flex-[1.2_1_600px] self-center overflow-hidden bg-night sm:h-[440px] lg:h-[600px]">
+    <div class="hero-fons-img relative h-[300px] min-w-0 flex-[1.2_1_600px] self-center lg:self-stretch overflow-hidden bg-night sm:h-[440px] lg:h-[clamp(560px,82svh,820px)]">
       <img src="/img/fisioterapeuta-valoracio-espatlla.webp" alt={t("consulta.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover grayscale" />
     </div>
   </section>
@@ -103,7 +105,8 @@ const onIQuan = [
   </section>
 
   <!-- ON I QUAN -->
-  <section id="on-i-quan" class="bg-btn text-white">
+  <section id="on-i-quan" class="relative isolate overflow-clip bg-btn text-white">
+    <div class="marca-ma marca-ma--clar marca-ma--esq" aria-hidden="true"></div>
     <h2 class="sr-only">{t("consulta.onIQuan.titol")}</h2>
     <div class="mx-auto grid max-w-site grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-12 px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
       {onIQuan.map((x, i) => (

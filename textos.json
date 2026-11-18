@@ -19,6 +19,8 @@
     "notaGoogle": "4,9",
     "numRessenyes": "41",
     "fundador": "Óscar González",
+    "anyInici": "1999",
+    "radiDomicili": "20",
     "preus": "55 €–130 €",
     "zonaServei": ["Belianes", "Bellpuig", "Tàrrega", "Arbeca", "Juneda", "Les Borges Blanques", "Anglesola", "Els Omellons", "Vilanova de Bellpuig"]
   },
@@ -143,6 +145,13 @@
         { "icona": "casa", "titol": { "ca": "Fisioteràpia\na domicili", "es": "Fisioterapia\na domicilio" }, "text": { "ca": "Atenció personalitzada a casa teva (radi 20 km).", "es": "Atención personalizada en tu casa (radio de 20 km)." },
           "enllacos": [ { "ruta": "domicili", "text": { "ca": "Zones i preus", "es": "Zonas y precios" } } ] }
       ]
+    },
+    "xifres": {
+      "etiqueta": { "ca": "Fisio Vall del Corb en xifres", "es": "Fisio Vall del Corb en cifras" },
+      "nota": { "ca": "Valoració a Google", "es": "Valoración en Google" },
+      "ressenyes": { "ca": "Ressenyes de pacients", "es": "Reseñas de pacientes" },
+      "anys": { "ca": "Anys de fisioterapeuta", "es": "Años de fisioterapeuta" },
+      "km": { "ca": "De radi a domicili", "es": "De radio a domicilio" }
     },
     "sobreMi": {
       "imatgeAlt": { "ca": "Óscar González, fisioterapeuta de Fisio Vall del Corb", "es": "Óscar González, fisioterapeuta de Fisio Vall del Corb" },

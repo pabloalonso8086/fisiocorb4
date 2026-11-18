@@ -16,6 +16,8 @@ const preus = raw("domicili.zones.preus") as any[];
 <BaseLayout lang={lang} title={t("domicili.seo.titol")} description={t("domicili.seo.descripcio")} alternates={alternates} actiu="domicili" image="/img/fisioterapia-domicili-exercici-equilibri.webp">
   <!-- HERO -->
   <section id="domicili" style="--hero-r:.77" class="hero-fons mx-auto flex max-w-site flex-wrap lg:flex-nowrap items-stretch">
+    <!-- Fons «ambient» (escriptori): la mateixa foto, molt desenfocada i al 25 %, a tot l\'ample -->
+    <img src="/img/fisioterapia-domicili-exercici-equilibri-fons.webp" alt="" aria-hidden="true" class="hero-ambient" />
     <div class="hero-fons-text flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
       <div class="mb-7 flex items-center gap-4">
         <div class="drawbar h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
@@ -25,7 +27,7 @@ const preus = raw("domicili.zones.preus") as any[];
       <p class="rise mb-10 mt-9 max-w-[540px] text-xl leading-[1.45] sm:text-[22px]" style="--d:.3s">{t("domicili.hero.text")}</p>
       <div class="rise" style="--d:.45s"><Button href={negoci.whatsapp}>{t("domicili.hero.boto")}</Button></div>
     </div>
-    <div class="hero-fons-img h-[320px] min-w-0 flex-[1.2_1_600px] self-center overflow-hidden sm:h-[440px] lg:h-[600px]">
+    <div class="hero-fons-img h-[320px] min-w-0 flex-[1.2_1_600px] self-center lg:self-stretch overflow-hidden sm:h-[440px] lg:h-[clamp(560px,82svh,820px)]">
       <img src="/img/fisioterapia-domicili-exercici-equilibri.webp" alt={t("domicili.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover object-[center_45%]" />
     </div>
   </section>

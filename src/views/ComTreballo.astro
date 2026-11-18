@@ -78,7 +78,9 @@ const formacio = raw("comTreballo.sobreMi.formacio") as any[];
   </section>
 
   <!-- SOBRE MI -->
-  <section id="sobre-mi" class="scroll-mt-24 bg-btn text-white">
+  <section id="sobre-mi" class="relative isolate scroll-mt-24 overflow-clip bg-btn text-white">
+    <!-- Mà del logo com a marca d'aigua. overflow-clip (i no hidden) perquè la foto sticky continuï funcionant -->
+    <div class="marca-ma marca-ma--clar" aria-hidden="true"></div>
     <div class="mx-auto flex max-w-site flex-wrap lg:flex-nowrap items-stretch">
       <!-- En escriptori la foto és «sticky»: ocupa l'alçada de la finestra (sota la capçalera compacta, 88px)
            i es queda quieta mentre el text puja, fins que s'acaba la secció.
