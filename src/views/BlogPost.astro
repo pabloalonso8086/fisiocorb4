@@ -1,0 +1,50 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Bar from "../components/Bar.astro";
+import Arrow from "../components/Arrow.astro";
+import { useT, negoci, type Lang } from "../i18n";
+import { formatDate, type Post } from "../lib/blog";
+import { blogPosting } from "../lib/schema";
+
+interface Props { lang: Lang; post: Post; alternates: { ca: string; es: string }; hasTranslation: boolean }
+const { lang, post, alternates, hasTranslation } = Astro.props;
+const { t, r } = useT(lang);
+const { Content } = await render(post);
+const d = post.data;
+---
+<BaseLayout
+  lang={lang}
+  title={`${d.titol} | ${negoci.nom}`}
+  description={d.descripcio}
+  alternates={alternates}
+  actiu="blog"
+  image={d.imatge}
+  ogType="article"
+  hreflangPair={hasTranslation}
+  jsonld={[blogPosting({ titol: d.titol, descripcio: d.descripcio, data: d.data, url: alternates[lang], imatge: d.imatge, autor: d.autor, lang })]}
+>
+  <article class="mx-auto max-w-[860px] px-5 pb-20 pt-12 sm:px-6 lg:pb-24 lg:pt-16">
+    <Bar />
+    <h1 class="rise mb-5 font-display text-[clamp(30px,3.4vw,42px)] font-extrabold leading-[1.12]">{d.titol}</h1>
+    <p class="mb-8 text-[15px] text-ink-soft">
+      <a href={r("blog")} class="font-bold">Blog</a> · <time datetime={d.data.toISOString().slice(0, 10)}>{formatDate(d.data, lang)}</time> · {d.autor}
+    </p>
+    {d.imatge && <img src={d.imatge} alt={d.imatgeAlt ?? ""} class="mb-10 h-auto w-full" fetchpriority="high" />}
+    <div class="prose-fisio">
+      <Content />
+    </div>
+
+    <aside class="reveal mt-14 border-l-[6px] border-groc bg-sand p-7">
+      <p class="mb-2.5 font-display font-extrabold uppercase">{t("blog.cta.titol")}</p>
+      <p class="mb-4">{t("blog.cta.text")}</p>
+      <p class="flex flex-wrap gap-x-5 gap-y-2 font-bold">
+        <a href={negoci.whatsapp} target="_blank" rel="noopener">{t("blog.cta.whatsapp")}</a>
+        <a href={r("comTreballo")}>{t("comu.nav.comTreballo")}</a>
+        <a href={r("consulta")}>{t("comu.nav.consulta")}</a>
+      </p>
+    </aside>
+
+    <a href={r("blog")} class="link-arrow mt-10 inline-flex min-h-12 items-center gap-2.5 font-bold no-underline">{t("blog.tornar")} <Arrow size={18} /></a>
+  </article>
+</BaseLayout>

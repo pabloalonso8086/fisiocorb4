@@ -1,0 +1,8 @@
+---
+const { size = 22, label, animate = false } = Astro.props as { size?: number; label: string; animate?: boolean };
+---
+<div class:list={["flex gap-1", animate && "stars-fill reveal-trigger"]} role="img" aria-label={label}>
+  {[0, 1, 2, 3, 4].map(() => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="#FCCB0A" aria-hidden="true"><path d="M12 2l3 6.6 7.2.7-5.4 4.8 1.6 7.1L12 17.6 5.6 21.2l1.6-7.1L1.8 9.3 9 8.6z" /></svg>
+  ))}
+</div>

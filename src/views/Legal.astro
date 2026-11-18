@@ -1,0 +1,18 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { negoci, type Lang } from "../i18n";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string }; doc: "avisLegal" | "privacitat" | "cookies" }
+const { lang, alternates, doc } = Astro.props;
+const entry = await getEntry("legal", `${lang}/${doc.toLowerCase()}`);
+if (!entry) throw new Error(`Falta el text legal src/content/legal/${lang}/${doc}.md`);
+const { Content } = await render(entry);
+---
+<BaseLayout lang={lang} title={`${entry.data.titol} | ${negoci.nom}`} description={entry.data.descripcio} alternates={alternates}>
+  <article class="mx-auto max-w-[860px] px-5 pb-20 pt-12 sm:px-6 lg:pb-24 lg:pt-16">
+    <div class="drawbar mb-7 h-1.5 w-14 bg-groc" aria-hidden="true"></div>
+    <h1 class="h-display mb-8 text-[clamp(32px,4vw,50px)] leading-[1.05]">{entry.data.titol}</h1>
+    <div class="prose-fisio"><Content /></div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+/** Icones de línia dels serveis. name: dolor | esport | postop | casa */
+const { name, size = 52 } = Astro.props as { name: string; size?: number };
+---
+<svg width={size} height={size} viewBox="0 0 48 48" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {name === "dolor" && <Fragment set:html={`<path d="M15 3v13c0 4 3 7 7 7s7-3 7-7V3"/><path d="M15 45V32c0-3 3-5 7-5s7 2 7 5v13"/><circle cx="32" cy="24" r="2.5"/><path d="M38 17l4-3"/><path d="M39 24h5"/><path d="M38 31l4 3"/>`} />}
+  {name === "esport" && <Fragment set:html={`<circle cx="31" cy="7" r="3.5"/><path d="M28 14l-6 12"/><path d="M27 16l-8 3-4-3"/><path d="M27 16l6 5 5-2"/><path d="M22 26l7 6-1 9"/><path d="M22 26l-5 8-7 2"/><path d="M4 44h40" stroke-dasharray="2 4"/>`} />}
+  {name === "postop" && <Fragment set:html={`<g transform="rotate(-45 24 24)"><rect x="3" y="22" width="22" height="5" rx="2.5"/><path d="M9 22v5"/><path d="M25 22h9c5 0 8.5 2 10 5H25z"/></g>`} />}
+  {name === "casa" && <Fragment set:html={`<path d="M5 23L24 6l19 17"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/>`} />}
+</svg>

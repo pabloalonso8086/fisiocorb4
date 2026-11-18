@@ -1,0 +1,27 @@
+---
+/**
+ * Botó / enllaç amb fletxa.
+ * variant: "fosc" (per defecte) | "groc" | "blanc" | "enllac" (sense fons)
+ */
+import Arrow from "./Arrow.astro";
+interface Props {
+  href: string;
+  variant?: "fosc" | "groc" | "blanc" | "enllac" | "enllacSuau";
+  class?: string;
+  external?: boolean;
+  arrow?: boolean;
+}
+const { href, variant = "fosc", class: cls = "", external, arrow = true } = Astro.props;
+const isExt = external ?? /^https?:/.test(href);
+const base = "inline-flex items-center gap-3.5 font-bold text-lg no-underline min-h-12";
+const styles: Record<string, string> = {
+  fosc: "btn bg-btn !text-white hover:!text-white px-8 sm:px-10 py-4",
+  groc: "btn bg-groc !text-ink hover:!text-ink px-7 py-4",
+  blanc: "btn bg-white !text-ink hover:!text-ink px-7 py-4",
+  enllac: "link-arrow min-h-11",
+  enllacSuau: "link-arrow min-h-11 !text-ink-soft",
+};
+---
+<a href={href} class:list={[base, styles[variant], cls]} {...(isExt ? { target: "_blank", rel: "noopener" } : {})}>
+  <slot />{arrow && <Arrow />}
+</a>

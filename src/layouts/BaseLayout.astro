@@ -1,0 +1,136 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { negoci, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Rutes d'aquesta mateixa pàgina en cada idioma (per a hreflang i el selector d'idioma) */
+  alternates: { ca: string; es: string };
+  actiu?: string;
+  image?: string;
+  ogType?: "website" | "article";
+  jsonld?: object[];
+  noindex?: boolean;
+  /** false si la pàgina no té traducció a l'altre idioma (llavors només s'indica el seu propi hreflang) */
+  hreflangPair?: boolean;
+}
+const { lang, title, description, alternates, actiu, image = "/img/fisioterapeuta-valoracio-genoll.webp", ogType = "website", jsonld = [], noindex = false, hreflangPair = true } = Astro.props;
+const site = Astro.site!.toString().replace(/\/$/, "");
+const canonical = site + alternates[lang];
+const ogImage = image.startsWith("http") ? image : site + image;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    {!noindex && hreflangPair && (
+      <>
+        <link rel="alternate" hreflang="ca" href={site + alternates.ca} />
+        <link rel="alternate" hreflang="es" href={site + alternates.es} />
+        <link rel="alternate" hreflang="x-default" href={site + alternates.ca} />
+      </>
+    )}
+    {!noindex && !hreflangPair && <link rel="alternate" hreflang={lang} href={canonical} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={lang === "ca" ? "ca_ES" : "es_ES"} />
+    <meta property="og:locale:alternate" content={lang === "ca" ? "es_ES" : "ca_ES"} />
+    <meta property="og:site_name" content={negoci.nom} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="theme-color" content="#F7F6F6" />
+    <link rel="icon" href={negoci.logo} />
+    <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/nunito-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+    <script is:inline>document.documentElement.classList.add("js");</script>
+    <ClientRouter fallback="swap" />
+  </head>
+  <body class="pb-[76px] lg:pb-0">
+    <Header lang={lang} actiu={actiu} alternates={alternates} />
+    <main id="contingut" class="overflow-x-clip">
+      <slot />
+    </main>
+    <Footer lang={lang} alternates={alternates} />
+
+    <script>
+      const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function revealOnScroll() {
+        const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-trigger, [data-count]");
+        if (!("IntersectionObserver" in window)) { els.forEach((e) => e.classList.add("in")); return; }
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            const el = e.target as HTMLElement;
+            el.classList.add("in");
+            if (el.dataset.count) countUp(el);
+            io.unobserve(el);
+          }
+        }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+        els.forEach((e) => io.observe(e));
+      }
+
+      /** Comptador de la nota de Google (4,9): puja de 0 fins al valor. */
+      function countUp(el: HTMLElement) {
+        const target = parseFloat(el.dataset.count!.replace(",", "."));
+        const dec = (el.dataset.count!.split(/[.,]/)[1] || "").length;
+        const fmt = (n: number) => n.toFixed(dec).replace(".", ",");
+        if (reduce()) { el.textContent = fmt(target); return; }
+        const t0 = performance.now(), dur = 1400;
+        const step = (now: number) => {
+          const p = Math.min(1, (now - t0) / dur);
+          el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      // Capçalera que es redueix i etiqueta del WhatsApp: un sol listener per a tota la sessió
+      let waTimer: number | undefined;
+      const onScroll = () => {
+        document.getElementById("site-header")?.classList.toggle("scrolled", scrollY > 24);
+        const lb = document.querySelector<HTMLElement>("#wa-fab .wa-lb");
+        if (!lb) return;
+        lb.style.opacity = "1"; lb.style.transform = "none";
+        clearTimeout(waTimer);
+        waTimer = window.setTimeout(() => { lb.style.opacity = ""; lb.style.transform = ""; }, 1600);
+      };
+      addEventListener("scroll", onScroll, { passive: true });
+
+      function mobileMenu() {
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu-mobil");
+        if (!btn || !menu) return;
+        const set = (open: boolean) => {
+          menu.classList.toggle("hidden", !open);
+          btn.setAttribute("aria-expanded", String(open));
+          btn.querySelectorAll(".menu-ic-open,.menu-lb-open").forEach((e) => e.classList.toggle("hidden", open));
+          btn.querySelectorAll(".menu-ic-close,.menu-lb-close").forEach((e) => e.classList.toggle("hidden", !open));
+        };
+        btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
+        menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => set(false)));
+        menu.addEventListener("keydown", (e) => { if (e.key === "Escape") { set(false); btn.focus(); } });
+      }
+
+      document.addEventListener("astro:after-swap", () => document.documentElement.classList.add("js"));
+      document.addEventListener("astro:page-load", () => {
+        document.documentElement.classList.add("js");
+        revealOnScroll();
+        document.getElementById("site-header")?.classList.toggle("scrolled", scrollY > 24);
+        mobileMenu();
+      });
+    </script>
+  </body>
+</html>

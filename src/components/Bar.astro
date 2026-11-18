@@ -1,0 +1,6 @@
+---
+/** Franja de color decorativa sobre els títols. */
+const { color = "groc", class: cls = "" } = Astro.props as { color?: "groc" | "verd" | "blau" | "magenta"; class?: string };
+const bg = { groc: "bg-groc", verd: "bg-verd", blau: "bg-blau", magenta: "bg-magenta" }[color];
+---
+<div aria-hidden="true" class:list={["h-1.5 w-14 mb-7", bg, cls]}></div>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import MapaZona from "../components/MapaZona.astro";
+import { useT, negoci, type Lang } from "../i18n";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string } }
+const { lang, alternates } = Astro.props;
+const { t, h, p, raw, r } = useT(lang);
+
+const perAQui = raw("domicili.perAQui.llista") as any[];
+const inclou = raw("domicili.inclou.llista") as any[];
+const preus = raw("domicili.zones.preus") as any[];
+---
+<BaseLayout lang={lang} title={t("domicili.seo.titol")} description={t("domicili.seo.descripcio")} alternates={alternates} actiu="domicili" image="/img/fisioterapia-domicili-exercici-equilibri.webp">
+  <!-- HERO -->
+  <section id="domicili" class="mx-auto flex max-w-site flex-wrap items-stretch">
+    <div class="flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
+      <div class="mb-7 flex items-center gap-4">
+        <div class="drawbar h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
+        <h1 class="rise font-display text-[13px] font-bold uppercase leading-relaxed tracking-[0.22em] sm:text-[15px] sm:tracking-[0.3em]">{t("domicili.hero.h1")}</h1>
+      </div>
+      <p class="h-display rise text-[clamp(40px,5vw,72px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("domicili.hero.titol")} />
+      <p class="rise mb-10 mt-9 max-w-[540px] text-xl leading-[1.45] sm:text-[22px]" style="--d:.3s">{t("domicili.hero.text")}</p>
+      <div class="rise" style="--d:.45s"><Button href={negoci.whatsapp}>{t("domicili.hero.boto")}</Button></div>
+    </div>
+    <div class="h-[320px] min-w-0 flex-[1.2_1_600px] self-center overflow-hidden sm:h-[440px] lg:h-[600px]">
+      <img src="/img/fisioterapia-domicili-exercici-equilibri.webp" alt={t("domicili.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover object-[center_45%]" />
+    </div>
+  </section>
+
+  <!-- PER A QUI -->
+  <section class="mx-auto max-w-site px-5 pb-16 pt-16 sm:px-8 lg:pb-[72px] lg:pt-24 xl:px-20">
+    <div class="reveal">
+      <Bar color="verd" />
+      <h2 class="h-display mb-12 text-[clamp(32px,3.4vw,50px)]">{t("domicili.perAQui.titol")}</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-y-8 md:grid-cols-3">
+      {perAQui.map((s, i) => (
+        <div class:list={["reveal", i > 0 && "border-t border-line pt-8 md:border-l md:border-t-0 md:pt-0", "md:px-10", i === 0 && "md:pl-0", i === perAQui.length - 1 && "md:pr-0"]} style={`--d:${i * 0.12}s`}>
+          <h3 class="mb-3 font-display text-2xl font-extrabold leading-[1.15]">{p(s.titol)}</h3>
+          <p class="text-lg leading-normal">{p(s.text)}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12"><Button href={negoci.whatsapp}>{t("domicili.perAQui.boto")}</Button></div>
+  </section>
+
+  <!-- QUÈ INCLOU -->
+  <section class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-24 xl:px-20">
+      <div class="reveal">
+        <Bar color="blau" />
+        <h2 class="h-display mb-4 text-[clamp(32px,3.4vw,50px)]">{t("domicili.inclou.titol")}</h2>
+        <p class="mb-12 text-xl leading-normal lg:mb-14">{t("domicili.inclou.intro")}</p>
+      </div>
+      <ol class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10">
+        {inclou.map((f, i) => (
+          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
+            <p class="mb-5 font-display text-5xl font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mb-3 font-display text-[22px] font-extrabold">{p(f.titol)}</h3>
+            <p class="text-lg leading-relaxed">{p(f.text)}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-12"><Button href={negoci.whatsapp}>{t("domicili.inclou.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- ZONES I PREUS -->
+  <section id="zones" class="mx-auto flex max-w-site flex-wrap gap-14 px-5 py-16 sm:px-8 lg:py-24 xl:px-20">
+    <div class="reveal min-w-0 flex-[1_1_380px]">
+      <Bar color="magenta" />
+      <h2 class="h-display mb-5 text-[clamp(32px,3.4vw,50px)]">{t("domicili.zones.titol")}</h2>
+      <p class="mb-6 text-[19px] leading-normal [&_a]:font-bold" set:html={h("domicili.zones.text")} />
+      <p class="text-[19px] leading-normal">{t("domicili.zones.noSurt")}</p>
+      <MapaZona lang={lang} variant="clar" class="mt-9 block w-full max-w-[560px]" />
+    </div>
+    <div class="reveal min-w-0 flex-[2_1_560px]" style="--d:.15s">
+      <table class="w-full border-t-2 border-ink">
+        <caption class="sr-only">{t("domicili.zones.taulaTitol")}</caption>
+        <tbody>
+          {preus.map((x) => (
+            <tr class="border-b border-line">
+              <th scope="row" class="py-6 text-left text-xl font-bold">{p(x.distancia)}</th>
+              <td class="py-6 text-right font-display text-[30px] font-extrabold sm:text-4xl">{p(x.preu)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="mt-6 text-[17px] leading-normal text-ink-soft">{t("domicili.zones.nota")}</p>
+      <div class="mt-8"><Button href={negoci.whatsapp}>{t("domicili.zones.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- RELACIONATS -->
+  <section class="mx-auto flex max-w-site flex-wrap gap-x-12 gap-y-4 border-t border-line px-5 pb-16 pt-10 sm:px-8 lg:pb-[72px] lg:pt-12 xl:px-20">
+    <Button href={r("consulta")} variant="enllac">{t("domicili.relacionats.consulta")}</Button>
+    <Button href={r("comTreballo")} variant="enllac">{t("domicili.relacionats.comTreballo")}</Button>
+  </section>
+</BaseLayout>

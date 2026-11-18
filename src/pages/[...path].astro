@@ -1,0 +1,44 @@
+---
+/**
+ * Ruta única: genera totes les pàgines (català i castellà) a partir de
+ * textos.json → "rutes" i dels articles del blog (src/content/blog).
+ */
+import type { GetStaticPaths } from "astro";
+import { LANGS, rutes, type Lang } from "../i18n";
+import { VISTES, resolveVista } from "../lib/pagines";
+import { getPosts, postSlug, postUrl } from "../lib/blog";
+import BlogPost from "../views/BlogPost.astro";
+
+export const getStaticPaths = (async () => {
+  const toParam = (url: string) => url.replace(/^\/|\/$/g, "") || undefined;
+  const paths: any[] = [];
+
+  for (const [key, urls] of Object.entries(rutes)) {
+    if (!VISTES[key]) continue;
+    for (const lang of LANGS) {
+      paths.push({ params: { path: toParam(urls[lang]) }, props: { kind: "page", key, lang, alternates: { ca: urls.ca, es: urls.es } } });
+    }
+  }
+
+  for (const lang of LANGS) {
+    const other: Lang = lang === "ca" ? "es" : "ca";
+    const otherSlugs = new Set((await getPosts(other)).map(postSlug));
+    for (const post of await getPosts(lang)) {
+      const slug = postSlug(post);
+      const tr = post.data.traduccio && otherSlugs.has(post.data.traduccio) ? post.data.traduccio : undefined;
+      const self = postUrl(lang, slug);
+      const alt = tr ? postUrl(other, tr) : rutes.blog[other];
+      paths.push({
+        params: { path: toParam(self) },
+        props: { kind: "post", lang, post, hasTranslation: !!tr, alternates: { [lang]: self, [other]: alt } },
+      });
+    }
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+const props = Astro.props as any;
+const page = props.kind === "page" ? resolveVista(props.key) : null;
+const View = page?.View;
+---
+{page ? <View lang={props.lang} alternates={props.alternates} {...page.extra} /> : <BlogPost lang={props.lang} post={props.post} alternates={props.alternates} hasTranslation={props.hasTranslation} />}

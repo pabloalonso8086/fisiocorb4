@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import { useT, negoci, type Lang } from "../i18n";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string } }
+const { lang, alternates } = Astro.props;
+const { t, h, p, raw, r } = useT(lang);
+
+const perAQui = raw("consulta.perAQui.llista") as any[];
+const passos = raw("consulta.primeraVisita.llista") as any[];
+const preus = raw("consulta.preus.llista") as any[];
+const onIQuan = [
+  { titol: t("consulta.onIQuan.onTitol"), text: t("consulta.onIQuan.on"), color: "groc" as const },
+  { titol: t("consulta.onIQuan.quanTitol"), text: t("consulta.onIQuan.quan"), color: "verd" as const },
+  { titol: t("consulta.onIQuan.comTitol"), text: t("consulta.onIQuan.com"), color: "blau" as const },
+];
+---
+<BaseLayout lang={lang} title={t("consulta.seo.titol")} description={t("consulta.seo.descripcio")} alternates={alternates} actiu="consulta">
+  <!-- HERO -->
+  <section id="bellpuig" class="mx-auto flex max-w-site flex-wrap items-stretch">
+    <div class="flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
+      <div class="mb-7 flex items-center gap-4">
+        <div class="drawbar h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
+        <h1 class="font-display text-[13px] font-bold uppercase tracking-[0.3em] sm:text-[15px]">{t("consulta.hero.h1")}</h1>
+      </div>
+      <p class="h-display rise text-[clamp(40px,5vw,72px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("consulta.hero.titol")} />
+      <p class="rise mb-10 mt-9 max-w-[540px] text-xl leading-[1.45] sm:text-[22px]" style="--d:.3s">{t("consulta.hero.text")}</p>
+      <div class="rise" style="--d:.45s"><Button href={negoci.whatsapp}>{t("consulta.hero.boto")}</Button></div>
+    </div>
+    <!-- Foto provisional: substituir per una foto en blanc i negre de la sala de Bellpuig -->
+    <div class="relative h-[300px] min-w-0 flex-[1.2_1_600px] self-center overflow-hidden bg-night sm:h-[440px] lg:h-[600px]">
+      <img src="/img/fisioterapeuta-valoracio-espatlla.webp" alt={t("consulta.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover grayscale" />
+    </div>
+  </section>
+
+  <!-- PER A QUI -->
+  <section class="mx-auto max-w-site px-5 pb-16 pt-16 sm:px-8 lg:pb-[72px] lg:pt-24 xl:px-20">
+    <div class="reveal">
+      <Bar color="verd" />
+      <h2 class="h-display mb-10 text-[clamp(32px,3.4vw,50px)] lg:mb-12" set:html={h("consulta.perAQui.titol")} />
+    </div>
+    <div class="flex flex-wrap items-center gap-10 lg:gap-14">
+      <div class="reveal h-[260px] min-w-0 flex-[1.2_1_520px] overflow-hidden sm:h-[380px] lg:h-[440px]">
+        <img src="/img/rehabilitacio-postoperatoria-bellpuig.webp" alt={t("consulta.perAQui.imatgeAlt")} loading="lazy" class="block size-full object-cover" />
+      </div>
+      <div class="min-w-0 flex-[1_1_400px]">
+        {perAQui.map((x, i) => (
+          <div class:list={["reveal py-6", i > 0 && "border-t border-line"]} style={`--d:${i * 0.12}s`}>
+            <h3 class="mb-2.5 font-display text-2xl font-extrabold leading-[1.15]">{p(x.titol)}</h3>
+            <p class="text-lg leading-normal">{p(x.text)}</p>
+          </div>
+        ))}
+        <div class="mt-6"><Button href={negoci.whatsapp}>{t("consulta.perAQui.boto")}</Button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMERA VISITA -->
+  <section class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="reveal">
+        <Bar color="blau" />
+        <h2 class="h-display mb-12 text-[clamp(32px,3.4vw,50px)]" set:html={h("consulta.primeraVisita.titol")} />
+      </div>
+      <ol class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10">
+        {passos.map((x, i) => (
+          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
+            <p class="mb-4 font-display text-[44px] font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mb-2.5 font-display text-[21px] font-extrabold">{p(x.titol)}</h3>
+            <p class="text-[17px] leading-relaxed">{p(x.text)}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-11"><Button href={negoci.whatsapp}>{t("consulta.primeraVisita.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- PREUS -->
+  <section id="preus" class="mx-auto flex max-w-site flex-wrap gap-10 px-5 py-16 sm:px-8 lg:gap-14 lg:py-24 xl:px-20">
+    <div class="reveal min-w-0 flex-[1_1_340px]">
+      <Bar color="magenta" />
+      <h2 class="h-display mb-5 text-[clamp(32px,3.4vw,50px)]">{t("consulta.preus.titol")}</h2>
+      <p class="max-w-[420px] text-[19px] leading-normal">{t("consulta.preus.intro")}</p>
+    </div>
+    <div class="min-w-0 flex-[1.6_1_560px]">
+      <div class="grid gap-6 sm:grid-cols-2">
+        {preus.map((x, i) => (
+          <div class="reveal flex flex-col border-t-[6px] border-groc bg-white p-7 shadow-[0_1px_0_rgba(20,20,20,.04)] transition-shadow duration-300 hover:shadow-[0_12px_30px_rgba(20,20,20,.08)] sm:p-8" style={`--d:${i * 0.12}s`}>
+            <h3 class="mb-2 font-display text-[22px] font-extrabold leading-tight">{p(x.nom)}</h3>
+            <p class="mb-6 text-[17px] leading-normal text-ink-soft">{p(x.text)}</p>
+            <p class="mt-auto font-display text-[44px] font-extrabold leading-none">{p(x.preu)}{p(x.periode) && <span class="ml-1 font-sans text-lg font-semibold text-ink-soft">{p(x.periode)}</span>}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-[17px] leading-normal">{t("consulta.preus.nota")}</p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <Button href={negoci.whatsapp}>{t("consulta.preus.boto")}</Button>
+        <Button href={r("inici", "faq")} variant="enllac">{t("consulta.preus.faq")}</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON I QUAN -->
+  <section id="on-i-quan" class="bg-btn text-white">
+    <h2 class="sr-only">{t("consulta.onIQuan.titol")}</h2>
+    <div class="mx-auto grid max-w-site grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-12 px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      {onIQuan.map((x, i) => (
+        <div class="reveal" style={`--d:${i * 0.12}s`}>
+          <Bar color={x.color} class="!mb-6" />
+          <h3 class="mb-3 font-display text-[26px] font-extrabold uppercase">{x.titol}</h3>
+          <p class="text-[19px] leading-normal">{x.text}</p>
+          {i === 2 && (
+            <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn mt-6 inline-flex min-h-12 items-center gap-3 bg-groc px-6 py-4 text-lg font-bold !text-ink no-underline hover:!text-ink">
+              <svg viewBox="0 0 24 24" class="size-6 fill-current" aria-hidden="true"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0012.05 0zm0 21.785a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.45 0 9.884 4.434 9.881 9.892-.003 5.45-4.437 9.884-9.885 9.884z" /></svg>
+              {negoci.telefonVisible}
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- BICI -->
+  <section class="bg-sand">
+    <div class="reveal mx-auto flex max-w-site flex-wrap items-center justify-between gap-8 px-5 py-14 sm:px-8 lg:py-16 xl:px-20">
+      <div class="max-w-[760px]">
+        <Bar color="verd" class="!mb-6" />
+        <h2 class="mb-3 font-display text-[clamp(24px,2.4vw,32px)] font-extrabold leading-tight">{t("consulta.bici.titol")}</h2>
+        <p class="text-lg leading-normal">{t("consulta.bici.text")}</p>
+      </div>
+      <Button href={r("bici")}>{t("consulta.bici.boto")}</Button>
+    </div>
+  </section>
+
+  <!-- DOMICILI -->
+  <section class="mx-auto flex max-w-site flex-wrap items-center justify-between gap-6 border-b border-line px-5 py-12 sm:px-8 lg:py-16 xl:px-20">
+    <div class="flex items-center gap-5">
+      <svg class="shrink-0" width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 23L24 6l19 17" /><path d="M10 19v23h28V19" /><path d="M20 42V30h8v12" /></svg>
+      <p class="font-display text-[clamp(21px,2vw,26px)] font-extrabold leading-tight">{t("consulta.domicili.text")}</p>
+    </div>
+    <Button href={r("domicili")} variant="enllac">{t("consulta.domicili.boto")}</Button>
+  </section>
+</BaseLayout>

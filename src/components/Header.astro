@@ -1,0 +1,80 @@
+---
+import { useT, negoci, type Lang } from "../i18n";
+import Arrow from "./Arrow.astro";
+
+interface Props {
+  lang: Lang;
+  /** Clau de la secció activa del menú: inici | comTreballo | consulta | domicili | blog */
+  actiu?: string;
+  alternates: { ca: string; es: string };
+}
+const { lang, actiu, alternates } = Astro.props;
+const { t, r } = useT(lang);
+
+const links = [
+  { key: "inici", href: r("inici"), label: t("comu.nav.inici") },
+  { key: "comTreballo", href: r("comTreballo"), label: t("comu.nav.comTreballo") },
+  { key: "consulta", href: r("consulta"), label: t("comu.nav.consulta") },
+  { key: "domicili", href: r("domicili"), label: t("comu.nav.domicili") },
+  { key: "blog", href: r("blog"), label: t("comu.nav.blog") },
+  { key: "contacte", href: "#contacte", label: t("comu.nav.contacte") },
+];
+const langs = [
+  { code: "ca", short: "CA", label: t("comu.idioma.ca"), href: alternates.ca },
+  { code: "es", short: "ES", label: t("comu.idioma.es"), href: alternates.es },
+] as const;
+---
+<a href="#contingut" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:bg-groc focus:px-4 focus:py-3 focus:font-bold">{t("comu.saltaContingut")}</a>
+
+<header id="site-header" class="sticky top-0 z-50 bg-paper/95 backdrop-blur-[2px] transition-shadow duration-300">
+  <div class="mx-auto flex max-w-site items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:py-4 xl:px-20">
+    <a href={r("inici")} aria-label={t("comu.logoInici")} class="inline-flex shrink-0">
+      <img src={negoci.logo} alt={t("comu.logoAlt")} width="168" height="84" class="logo h-16 w-auto transition-[height] duration-300 lg:h-[84px]" />
+    </a>
+
+    <!-- Escriptori -->
+    <nav aria-label={t("comu.nav.principal")} class="hidden items-center gap-8 text-base font-bold xl:flex 2xl:gap-10">
+      {links.map((l) => (
+        <a href={l.href} class:list={["relative flex items-center justify-center py-2.5 text-center no-underline after:absolute after:inset-x-0 after:-bottom-0.5 after:h-1 after:origin-left after:bg-groc after:transition-transform after:duration-300", l.key === actiu ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"]} aria-current={l.key === actiu ? "page" : undefined}>{l.label}</a>
+      ))}
+      <div class="flex items-center gap-1 text-sm" aria-label={t("comu.idioma.etiqueta")} role="group">
+        {langs.map((x, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true" class="text-line">|</span>}
+            <a href={x.href} hreflang={x.code} lang={x.code} title={x.label} aria-label={x.label} data-astro-reload class:list={["px-1.5 py-2.5 no-underline", x.code === lang ? "text-ink underline decoration-groc decoration-[3px] underline-offset-4" : "!text-ink-soft"]} aria-current={x.code === lang ? "true" : undefined}>{x.short}</a>
+          </>
+        ))}
+      </div>
+      <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn inline-flex min-h-12 items-center justify-center gap-3 bg-btn px-6 text-center py-4 !text-white no-underline hover:!text-white">{t("comu.nav.demanaCita")} <Arrow /></a>
+    </nav>
+
+    <!-- Mòbil i tauleta -->
+    <div class="flex items-center gap-2 xl:hidden">
+      <button id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-mobil" class="inline-flex min-h-12 items-center gap-2.5 rounded-md border-2 border-ink bg-white px-4 text-lg font-bold">
+        <svg class="menu-ic-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+        <svg class="menu-ic-close hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        <span class="menu-lb-open">{t("comu.nav.menu")}</span><span class="menu-lb-close hidden">{t("comu.nav.tancar")}</span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="menu-mobil" aria-label={t("comu.nav.principal")} class="hidden max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line bg-paper xl:hidden">
+    <ul class="mx-auto max-w-site px-5 py-2 sm:px-8">
+      {links.map((l) => (
+        <li class="border-b border-line">
+          <a href={l.href} class:list={["flex min-h-14 items-center justify-between py-3 text-xl font-bold no-underline", l.key === actiu && "text-ink"]} aria-current={l.key === actiu ? "page" : undefined}>
+            <span class:list={[l.key === actiu && "border-b-4 border-groc"]}>{l.label}</span><Arrow />
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mx-auto flex max-w-site flex-col gap-4 px-5 pb-6 pt-2 sm:px-8">
+      <a href={negoci.whatsapp} target="_blank" rel="noopener" class="btn flex min-h-14 items-center justify-center gap-3 bg-btn text-lg font-bold !text-white no-underline">{t("comu.nav.demanaCita")} <Arrow /></a>
+      <div class="flex gap-3" role="group" aria-label={t("comu.idioma.etiqueta")}>
+        {langs.map((x) => (
+          <a href={x.href} hreflang={x.code} lang={x.code} data-astro-reload class:list={["flex min-h-12 flex-1 items-center justify-center rounded-md border-2 text-lg font-bold no-underline", x.code === lang ? "border-ink bg-ink !text-white" : "border-line bg-white"]} aria-current={x.code === lang ? "true" : undefined}>{x.label}</a>
+        ))}
+      </div>
+    </div>
+  </nav>
+</header>

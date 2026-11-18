@@ -1,0 +1,103 @@
+# Redireccions 301 de les adreces de la web antiga (format Cloudflare).
+# Es comprova automàticament a cada `pnpm build` (scripts/check-redirects.mjs).
+# Cada adreça va amb i sense barra final.
+
+
+# ── Pàgines antigues en català ──
+/qui-soc/  /com-treballo/  301
+/qui-soc  /com-treballo/  301
+/serveis/  /  301
+/serveis  /  301
+/contacte/  /  301
+/contacte  /  301
+/fisioterapia-traumatologica-2/  /fisioterapeuta-bellpuig/  301
+/fisioterapia-traumatologica-2  /fisioterapeuta-bellpuig/  301
+/fisioterapia-esportiva-a-domicili-a-lurgell/  /fisioterapeuta-bellpuig/  301
+/fisioterapia-esportiva-a-domicili-a-lurgell  /fisioterapeuta-bellpuig/  301
+/fisioterapia-per-a-persones-majors/  /fisioterapia-domicili/  301
+/fisioterapia-per-a-persones-majors  /fisioterapia-domicili/  301
+/politica-de-cookies-2/  /politica-de-cookies/  301
+/politica-de-cookies-2  /politica-de-cookies/  301
+/arees-dactuacio/  /fisioterapia-domicili/  301
+/arees-dactuacio  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-bellpuig/  /fisioterapeuta-bellpuig/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-bellpuig  /fisioterapeuta-bellpuig/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-agramunt/  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-agramunt  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-cervera/  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-cervera  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-linyola/  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-linyola  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-els-omellons/  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicili-a-els-omellons  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicilio-en-anglesola/  /fisioterapia-domicili/  301
+/arees-dactuacio/fisioterapia-a-domicilio-en-anglesola  /fisioterapia-domicili/  301
+/blog-2/  /blog/  301
+/blog-2  /blog/  301
+/blog-2/2/  /blog/  301
+/blog-2/2  /blog/  301
+/blog-2/3/  /blog/  301
+/blog-2/3  /blog/  301
+/blog-2/4/  /blog/  301
+/blog-2/4  /blog/  301
+
+# ── Pàgines antigues en castellà ──
+/es/home/  /es/  301
+/es/home  /es/  301
+/es/contacto/  /es/  301
+/es/contacto  /es/  301
+/es/servicios/  /es/  301
+/es/servicios  /es/  301
+/es/quien-soy/  /es/como-trabajo/  301
+/es/quien-soy  /es/como-trabajo/  301
+/es/fisioterapia-traumatologica/  /es/fisioterapeuta-bellpuig/  301
+/es/fisioterapia-traumatologica  /es/fisioterapeuta-bellpuig/  301
+/es/fisioterapia-deportiva/  /es/fisioterapeuta-bellpuig/  301
+/es/fisioterapia-deportiva  /es/fisioterapeuta-bellpuig/  301
+/es/fisioterapia-para-personas-mayores/  /es/fisioterapia-domicilio/  301
+/es/fisioterapia-para-personas-mayores  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-bellpuig/  /es/fisioterapeuta-bellpuig/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-bellpuig  /es/fisioterapeuta-bellpuig/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-agramunt/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-agramunt  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-anglesola/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-anglesola  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-cervera/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-cervera  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-els-omellons/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-els-omellons  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-linyola/  /es/fisioterapia-domicilio/  301
+/es/areas-de-actuacion/fisioterapia-a-domicilio-en-linyola  /es/fisioterapia-domicilio/  301
+/es/blog/2/  /es/blog/  301
+/es/blog/2  /es/blog/  301
+/es/blog/3/  /es/blog/  301
+/es/blog/3  /es/blog/  301
+/es/blog/4/  /es/blog/  301
+/es/blog/4  /es/blog/  301
+
+# ── Articles i pàgines antigues enllaçades des del blog ──
+/es/blog/la-transicion-al-minimalismo/  /es/blog/la-transicion-al-minimalismo-2/  301
+/es/blog/la-transicion-al-minimalismo  /es/blog/la-transicion-al-minimalismo-2/  301
+/bikefitting/  /estudi-biomecanic-bicicleta/  301
+/bikefitting  /estudi-biomecanic-bicicleta/  301
+/estem-lesionats-i-ara-que-fem/  /blog/lesio/  301
+/estem-lesionats-i-ara-que-fem  /blog/lesio/  301
+/rehabilitacio-del-corredor/  /fisioterapeuta-bellpuig/  301
+/rehabilitacio-del-corredor  /fisioterapeuta-bellpuig/  301
+
+# ── Duplicats antics del blog per data (/2016/…, /2025/02/27/…) ──
+/2014/*  /blog/  301
+/2015/*  /blog/  301
+/2016/*  /blog/  301
+/2017/*  /blog/  301
+/2018/*  /blog/  301
+/2019/*  /blog/  301
+/2020/*  /blog/  301
+/2021/*  /blog/  301
+/2022/*  /blog/  301
+/2023/*  /blog/  301
+/2024/*  /blog/  301
+/2025/*  /blog/  301
+/2026/*  /blog/  301

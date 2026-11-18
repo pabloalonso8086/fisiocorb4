@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import { useT, negoci, type Lang } from "../i18n";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string } }
+const { lang, alternates } = Astro.props;
+const { t, h, p, raw, r } = useT(lang);
+
+const passos = raw("bici.estudi.llista") as any[];
+const perAQui = raw("bici.perAQui.llista") as any[];
+---
+<BaseLayout lang={lang} title={t("bici.seo.titol")} description={t("bici.seo.descripcio")} alternates={alternates} actiu="consulta" image="/img/estudi-biomecanic-bicicleta-bellpuig.webp">
+  <!-- HERO -->
+  <section id="biomecanica" class="mx-auto flex max-w-site flex-wrap items-stretch">
+    <div class="flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
+      <div class="mb-7 flex items-center gap-4">
+        <div class="drawbar h-1.5 w-14 shrink-0 bg-verd" aria-hidden="true"></div>
+        <h1 class="font-display text-[13px] font-bold uppercase tracking-[0.3em] sm:text-[15px]">{t("bici.hero.h1")}</h1>
+      </div>
+      <p class="h-display rise text-[clamp(40px,5vw,72px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("bici.hero.titol")} />
+      <p class="rise mb-10 mt-9 max-w-[540px] text-xl leading-[1.45] sm:text-[22px]" style="--d:.3s">{t("bici.hero.text")}</p>
+      <div class="rise" style="--d:.45s"><Button href={negoci.whatsapp}>{t("bici.hero.boto")}</Button></div>
+    </div>
+    <div class="relative h-[320px] min-w-0 flex-[1.2_1_600px] self-center overflow-hidden sm:h-[440px] lg:h-[600px]">
+      <img src="/img/estudi-biomecanic-bicicleta-bellpuig.webp" alt={t("bici.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover" />
+    </div>
+  </section>
+
+  <!-- PER QUÈ PRIMER TU -->
+  <section class="mx-auto flex max-w-site flex-wrap gap-10 px-5 py-16 sm:px-8 lg:gap-14 lg:py-24 xl:px-20">
+    <div class="reveal min-w-0 flex-[1_1_380px]">
+      <Bar />
+      <h2 class="h-display text-[clamp(32px,3.4vw,50px)]" set:html={h("bici.primerTu.titol")} />
+    </div>
+    <div class="reveal min-w-0 flex-[1.4_1_520px]" style="--d:.12s">
+      <p class="mb-5 text-xl leading-normal">{t("bici.primerTu.p1")}</p>
+      <p class="mb-9 text-xl leading-normal">{t("bici.primerTu.p2")}</p>
+      <Button href={negoci.whatsapp}>{t("bici.primerTu.boto")}</Button>
+    </div>
+  </section>
+
+  <!-- COM ÉS L'ESTUDI -->
+  <section class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <Bar color="blau" />
+          <h2 class="h-display text-[clamp(32px,3.4vw,50px)]">{t("bici.estudi.titol")}</h2>
+        </div>
+        <p class="max-w-[500px] text-[19px] leading-normal">{t("bici.estudi.intro")}</p>
+      </div>
+      <ol class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10">
+        {passos.map((x, i) => (
+          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
+            <p class="mb-4 font-display text-[44px] font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mb-2.5 font-display text-[21px] font-extrabold">{p(x.titol)}</h3>
+            <p class="text-[17px] leading-relaxed">{p(x.text)}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-11"><Button href={negoci.whatsapp}>{t("bici.estudi.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- PER A QUI + PREU -->
+  <section class="mx-auto flex max-w-site flex-wrap items-center gap-12 px-5 py-16 sm:px-8 lg:gap-16 lg:py-24 xl:px-20">
+    <div class="reveal min-w-0 flex-[1.2_1_460px]">
+      <Bar color="magenta" />
+      <h2 class="h-display mb-8 text-[clamp(32px,3.4vw,50px)]">{t("bici.perAQui.titol")}</h2>
+      <ul class="border-b border-line">
+        {perAQui.map((x) => (
+          <li class="flex gap-4 border-t border-line py-4 text-lg leading-normal">
+            <svg class="mt-0.5 shrink-0 text-verd" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            <span>{p(x)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="reveal min-w-0 flex-[1_1_380px] bg-btn p-8 text-white sm:p-12" style="--d:.15s">
+      <p class="mb-2 font-display text-lg font-bold uppercase tracking-[0.15em]">{t("bici.perAQui.preuNom")}</p>
+      <p class="mb-5 font-display text-[64px] font-extrabold leading-none">{t("bici.perAQui.preu")}</p>
+      <p class="mb-8 text-[17px] leading-relaxed text-white/85">{t("bici.perAQui.preuDetall")}</p>
+      <Button href={negoci.whatsapp} variant="groc">{t("bici.perAQui.boto")}</Button>
+    </div>
+  </section>
+
+  <!-- RELACIONATS -->
+  <div class="mx-auto flex max-w-site flex-wrap gap-x-12 gap-y-2 border-t border-line px-5 pb-16 pt-10 sm:px-8 lg:pb-[72px] xl:px-20">
+    <Button href={r("consulta")} variant="enllac">{t("bici.relacionats.consulta")}</Button>
+    <Button href={r("comTreballo")} variant="enllac">{t("bici.relacionats.comTreballo")}</Button>
+  </div>
+</BaseLayout>

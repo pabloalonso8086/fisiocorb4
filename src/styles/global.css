@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ───────── Tipografies (allotjades al propi web, sense Google Fonts) ───────── */
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/montserrat-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 800; font-display: swap; src: url(/fonts/montserrat-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/nunito-sans-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/nunito-sans-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/nunito-sans-latin-700-normal.woff2) format("woff2"); }
+
+/* ───────── Paleta i tipografia de Fisio Vall del Corb ───────── */
+@theme {
+  --font-sans: "Nunito Sans", system-ui, sans-serif;
+  --font-display: "Montserrat", "Nunito Sans", sans-serif;
+
+  --color-ink: #141414;        /* text principal */
+  --color-ink-soft: #4a4a48;   /* text secundari */
+  --color-btn: #1a1a19;        /* botó fosc */
+  --color-paper: #f7f6f6;      /* fons general */
+  --color-sand: #edecea;       /* fons seccions alternes */
+  --color-line: #c9c8c6;       /* línies divisòries */
+  --color-night: #2b2b2a;      /* peu de pàgina */
+  --color-mute: #b9b7b3;       /* enllaços legals al peu */
+
+  --color-groc: #fccb0a;
+  --color-verd: #6ca614;
+  --color-blau: #0f96d4;
+  --color-magenta: #b61367;
+  --color-whatsapp: #25d366;
+
+  --container-site: 1440px;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper font-sans text-ink antialiased; font-size: 18px; }
+  a { color: var(--color-ink); }
+  a:hover { color: var(--color-ink-soft); }
+  img { max-width: 100%; }
+  :focus-visible { outline: 3px solid var(--color-groc); outline-offset: 3px; }
+  ::selection { background: var(--color-groc); color: var(--color-ink); }
+}
+
+@utility h-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+}
+
+/* ───────── Aparició suau en fer scroll (respecta «reduir moviment») ───────── */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Hero: zoom molt lent de la foto (efecte Ken Burns) */
+@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+.kenburns { animation: kenburns 14s cubic-bezier(.2,.6,.3,1) both; transform-origin: 60% 40%; }
+
+/* Franja groga que es dibuixa */
+@keyframes drawbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.drawbar { transform-origin: left; animation: drawbar .9s .35s cubic-bezier(.2,.7,.2,1) both; }
+
+/* Franja que es dibuixa quan apareix en pantalla */
+.js .drawbar-view { transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.js .drawbar-view.in { transform: none; }
+
+/* Entrada del titular de la portada */
+@keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { animation: riseIn .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+
+/* Estrelles que s'omplen */
+.js .stars-fill svg { opacity: .2; transform: scale(.7); transition: opacity .35s, transform .35s cubic-bezier(.3,1.6,.5,1); }
+.js .stars-fill.in svg { opacity: 1; transform: none; }
+.stars-fill.in svg:nth-child(2) { transition-delay: .1s; } .stars-fill.in svg:nth-child(3) { transition-delay: .2s; }
+.stars-fill.in svg:nth-child(4) { transition-delay: .3s; } .stars-fill.in svg:nth-child(5) { transition-delay: .4s; }
+
+/* Botó de WhatsApp flotant (escriptori) */
+@keyframes waPulse { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(1.55); opacity: 0; } }
+.wa-pulse::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; border: 3px solid var(--color-whatsapp); animation: waPulse 2.4s ease-out infinite; }
+
+/* Preguntes freqüents */
+.faq summary { list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq .faq-icon { transition: transform .3s ease; }
+.faq details[open] .faq-icon { transform: rotate(45deg); }
+@keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.faq details[open] .faq-body { animation: faqIn .35s ease both; }
+
+/* Botons: petita elevació, sense estridències */
+.btn { border-radius: 6px; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,20,20,.18); }
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow, .link-arrow:hover .arrow, .group:hover .link-arrow .arrow { transform: translateX(4px); }
+
+/* Capçalera fixa que es redueix en fer scroll */
+#site-header.scrolled { box-shadow: 0 4px 18px rgba(20,20,20,.08); }
+#site-header.scrolled .logo { height: 56px; }
+@media (max-width: 1023px) { #site-header.scrolled .logo { height: 48px; } }
+
+/* Text llarg (blog i textos legals) */
+.prose-fisio { font-size: 19px; line-height: 1.7; }
+.prose-fisio > * + * { margin-top: 1.1em; }
+.prose-fisio h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; margin-top: 1.8em; }
+.prose-fisio h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.25; margin-top: 1.5em; }
+.prose-fisio h4 { font-weight: 700; font-size: 20px; margin-top: 1.3em; }
+.prose-fisio ul { list-style: disc; padding-left: 1.4em; }
+.prose-fisio ol { list-style: decimal; padding-left: 1.4em; }
+.prose-fisio li + li { margin-top: .4em; }
+.prose-fisio a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--color-groc); text-decoration-thickness: 3px; text-underline-offset: 3px; }
+.prose-fisio strong { font-weight: 700; }
+.prose-fisio img { height: auto; margin-top: 1.6em; margin-bottom: 1.6em; }
+.prose-fisio blockquote { border-left: 6px solid var(--color-groc); padding-left: 1em; font-style: italic; }
+.prose-fisio table { width: 100%; border-collapse: collapse; font-size: 16px; display: block; overflow-x: auto; }
+.prose-fisio th, .prose-fisio td { border: 1px solid var(--color-line); padding: .5em .7em; text-align: left; }
+.prose-fisio hr { border: 0; border-top: 1px solid var(--color-line); }
+
+/* Transicions entre pàgines suaus */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal, .js .stars-fill svg, .js .drawbar-view { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .kenburns, .drawbar, .rise, .faq details[open] .faq-body { animation: none !important; }
+  .wa-pulse::after { display: none; }
+  .btn, .btn:hover { transform: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

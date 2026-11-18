@@ -1,0 +1,87 @@
+---
+/**
+ * Pàgina d'un poble (fisioteràpia a domicili). Una sola plantilla per a tots:
+ * els textos són a textos.json → "pobles.<clau>" i els comuns a "pobles.comu".
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import { useT, negoci, type Lang } from "../i18n";
+import { breadcrumb } from "../lib/schema-pobles";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string }; poble: string }
+const { lang, alternates, poble } = Astro.props;
+const { t, h, p, raw, r } = useT(lang);
+const k = (s: string) => `pobles.${poble}.${s}`;
+const serveis = raw("pobles.comu.serveis") as any[];
+---
+<BaseLayout
+  lang={lang}
+  title={t(k("seo.titol"))}
+  description={t(k("seo.descripcio"))}
+  alternates={alternates}
+  actiu="domicili"
+  jsonld={[breadcrumb([
+    { nom: t("comu.nav.inici"), url: r("inici") },
+    { nom: t("pobles.comu.arrel"), url: r("domicili") },
+    { nom: t(k("nom")), url: alternates[lang] },
+  ])]}
+>
+  <!-- HERO -->
+  <section id={poble} class="mx-auto max-w-site px-5 pb-16 pt-10 sm:px-8 lg:pb-[88px] lg:pt-[72px] xl:px-20">
+    <nav aria-label={t("pobles.comu.molles")} class="mb-6 text-base">
+      <a href={r("domicili")} class="inline-flex min-h-11 items-center font-bold no-underline hover:underline">{t("pobles.comu.arrel")}</a>
+      <span aria-hidden="true" class="mx-1.5">›</span>
+      <span aria-current="page">{t(k("nom"))}</span>
+    </nav>
+    <div class="mb-7 flex items-center gap-4">
+      <div class="drawbar h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
+      <h1 class="rise font-display text-[13px] font-bold uppercase leading-relaxed tracking-[0.22em] sm:text-[15px] sm:tracking-[0.3em]">{t(k("h1"))}</h1>
+    </div>
+    <p class="h-display rise max-w-[1100px] text-[clamp(38px,5.4vw,80px)] leading-none tracking-[-0.015em]" style="--d:.12s">{t(k("titol"))}</p>
+    <div class="rise mt-10 flex flex-wrap items-start gap-x-12 gap-y-5 lg:mt-11" style="--d:.3s">
+      <p class="min-w-0 flex-[1_1_480px] text-xl leading-normal sm:text-[22px]">{t(k("text1"))}</p>
+      <p class="min-w-0 flex-[1_1_480px] text-xl leading-normal text-ink-soft sm:text-[22px]">{t(k("text2"))}</p>
+    </div>
+    <div class="rise mt-10 lg:mt-11" style="--d:.45s"><Button href={negoci.whatsapp}>{t(k("boto"))}</Button></div>
+  </section>
+
+  <!-- QUÈ TRACTO -->
+  <section class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="reveal">
+        <Bar color="verd" />
+        <h2 class="h-display mb-12 text-[clamp(30px,3.2vw,46px)]">{t(k("quePucFer"))}</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-y-8 md:grid-cols-3">
+        {serveis.map((s, i) => (
+          <div class:list={["reveal", i > 0 && "border-t border-line pt-8 md:border-l md:border-t-0 md:pt-0", "md:px-10", i === 0 && "md:pl-0", i === serveis.length - 1 && "md:pr-0"]} style={`--d:${i * 0.12}s`}>
+            <h3 class="mb-3 font-display text-[22px] font-extrabold leading-[1.15]">{p(s.titol)}</h3>
+            <p class="text-lg leading-normal">{p(s.text)}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-12"><Button href={negoci.whatsapp}>{t(k("botoCita"))}</Button></div>
+    </div>
+  </section>
+
+  <!-- PREU I CONSULTA -->
+  <section class="mx-auto flex max-w-site flex-wrap gap-10 px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+    <div class="reveal min-w-0 flex-[1_1_420px] bg-btn p-8 text-white sm:p-12">
+      <p class="mb-2 font-display text-[15px] font-bold uppercase tracking-[0.22em] text-groc">{t(k("preuEtiqueta"))}</p>
+      <p class="mb-3 font-display text-[56px] font-extrabold leading-none">{t(k("preu"))}</p>
+      <p class="text-lg leading-normal text-[#D6D4D0]">{t("pobles.comu.preuNota")}</p>
+    </div>
+    <div class="reveal min-w-0 flex-[1_1_420px] border-2 border-ink p-8 sm:p-12" style="--d:.12s">
+      <h2 class="mb-3 font-display text-[28px] font-extrabold uppercase leading-[1.1]">{t("pobles.comu.desplacarTitol")}</h2>
+      <p class="mb-6 text-lg leading-normal">{t(k("desplacarText"))}</p>
+      <Button href={r("consulta")} variant="enllac">{t("pobles.comu.consultaBoto")}</Button>
+    </div>
+  </section>
+
+  <!-- ALTRES POBLES -->
+  <section class="mx-auto max-w-site px-5 pb-16 sm:px-8 lg:pb-[72px] xl:px-20">
+    <h2 class="mb-5 font-display text-[22px] font-extrabold uppercase">{t("pobles.comu.tambeTitol")}</h2>
+    <p class="text-lg leading-[2.2] [&_a]:font-bold [&_a]:inline-block [&_a]:py-1" set:html={h(k("tambe"))} />
+  </section>
+</BaseLayout>

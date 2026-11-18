@@ -1,0 +1,72 @@
+---
+/**
+ * Mapa de la zona de servei (SVG propi, sense Google Maps incrustat ni cookies).
+ * variant "fosc": per al peu de pàgina · variant "clar": versió gran per a pàgines.
+ */
+import { useT, negoci, type Lang } from "../i18n";
+interface Props { lang: Lang; variant?: "fosc" | "clar"; class?: string }
+const { lang, variant = "fosc", class: cls = "" } = Astro.props;
+const { t } = useT(lang);
+
+const big = variant === "clar";
+const W = big ? 560 : 420;
+const H = big ? 420 : 300;
+const k = big ? 125 / 90 : 1;
+const cx = big ? 320 : 250;
+const cy = big ? 205 : 150;
+// Coordenades de referència (mapa petit, centrat a Belianes 250,150)
+const P = (x: number, y: number) => [Math.round((x - 250) * k + cx), Math.round((y - 150) * k + cy)];
+const fs = big ? 17 : 13;
+const ink = big ? "#141414" : "#FFFFFF";
+const soft = big ? "#8A8885" : "rgba(255,255,255,.45)";
+const pobles: [string, number, number, "start" | "middle" | "end", number, number][] = [
+  ["Tàrrega", 345, 71, "middle", 0, -12],
+  ["Anglesola", 304, 62, "end", -10, -8],
+  ["Vilanova de Bellpuig", 213, 115, "end", -10, 5],
+  ["Els Omellons", 211, 215, "start", 10, 16],
+  ["Arbeca", 184, 176, "start", 10, 5],
+  ["Juneda", 111, 170, "middle", 0, -14],
+  ["Les Borges Blanques", 143, 197, "middle", 0, 30],
+];
+const id = `mc-${variant}`;
+const [mx, my] = P(162, 87);
+const [bx, by] = P(250, 87);
+const road = [[-110, 101], [162, 87], [250, 87], [345, 71], [520, 42]].map(([x, y]) => P(x, y).join(",")).join(" ");
+---
+<a href={negoci.googleMaps} target="_blank" rel="noopener" aria-label={t("comu.mapa.aria")} class:list={["mapa block no-underline transition hover:opacity-95", cls]}>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={t("comu.mapa.descripcio")} class="block h-auto w-full font-sans" style={`background:${big ? "#EDECEA" : "rgba(20,20,20,.55)"}`}>
+    <clipPath id={id}><rect width={W} height={H} /></clipPath>
+    <g clip-path={`url(#${id})`}>
+      <circle cx={cx} cy={cy} r={90 * k} fill="none" stroke={soft} stroke-width="1.2" stroke-dasharray="5 6" />
+      <text x={P(194, 102)[0]} y={P(194, 102)[1]} font-size={big ? 15 : 11} fill={soft}>10 km</text>
+      <circle cx={cx} cy={cy} r={180 * k} fill="none" stroke={soft} stroke-width="1.2" stroke-dasharray="5 6" />
+      <text x={P(131, 39)[0]} y={P(131, 39)[1]} font-size={big ? 15 : 11} fill={soft}>20 km</text>
+      <polyline points={road} fill="none" stroke={soft} stroke-width="3" />
+      <circle cx={mx} cy={my} r="4" fill="none" stroke={soft} stroke-width="1.5" />
+      <text x={mx} y={my - 12} text-anchor="middle" font-size={big ? 15 : 11} fill={soft}>Mollerussa</text>
+      {pobles.map(([nom, x, y, anchor, dx, dy]) => {
+        const [px, py] = P(x, y);
+        return (
+          <g>
+            <circle cx={px} cy={py} r="5" fill={ink} />
+            <text x={px + dx} y={py + dy} text-anchor={anchor} font-size={fs} font-weight="700" fill={ink}>{nom}</text>
+          </g>
+        );
+      })}
+      <rect x={bx - 9} y={by - 3} width="18" height="18" fill="#FCCB0A" stroke={ink} stroke-width="2" />
+      <text x={P(266, 119)[0]} y={P(266, 119)[1]} font-size={big ? 18 : 14} font-weight="800" fill={ink}>{t("comu.mapa.consulta")}</text>
+      <circle class="mapa-pols" cx={cx} cy={cy} r="14" fill="none" stroke="#FCCB0A" stroke-width="2" />
+      <circle cx={cx} cy={cy} r="8" fill={ink} />
+      <circle cx={cx} cy={cy} r="14" fill="none" stroke={ink} stroke-width="1.5" />
+      <text x={cx + 20} y={cy + 6} font-size={big ? 18 : 14} font-weight="800" fill={ink}>Belianes</text>
+    </g>
+    <rect x={W - (big ? 202 : 156)} y={H - 36} width={big ? 194 : 148} height="28" fill="#FCCB0A" />
+    <text x={W - (big ? 105 : 82)} y={H - 17} text-anchor="middle" font-size={big ? 16 : 12} font-weight="700" fill="#141414">{t("comu.mapa.veureMaps")}</text>
+  </svg>
+</a>
+
+<style>
+  @keyframes pols { 0% { r: 14; opacity: .9; } 100% { r: 40; opacity: 0; } }
+  .mapa-pols { animation: pols 2.6s ease-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .mapa-pols { animation: none; display: none; } }
+</style>

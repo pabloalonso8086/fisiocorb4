@@ -1,0 +1,16 @@
+---
+/** Llista de preguntes desplegables. items: [{ pregunta, resposta }] (ja en HTML) */
+interface Props { items: { pregunta: string; resposta: string }[] }
+const { items } = Astro.props;
+---
+<div class="faq border-t-2 border-ink">
+  {items.map((it) => (
+    <details class="group border-b border-line">
+      <summary class="flex cursor-pointer items-center justify-between gap-6 py-6 font-display text-[19px] font-bold leading-snug sm:text-[21px] min-h-12">
+        <span set:html={it.pregunta} />
+        <span class="faq-icon grid size-10 shrink-0 place-items-center rounded-full border-2 border-ink text-2xl leading-none group-open:bg-groc group-open:border-groc" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-body"><div><p class="max-w-[720px] pb-7 text-lg leading-relaxed [&_a]:font-bold" set:html={it.resposta} /></div></div>
+    </details>
+  ))}
+</div>

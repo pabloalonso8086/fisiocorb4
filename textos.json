@@ -1,0 +1,1341 @@
+{
+  "_LLEGEIX-ME": [
+    "AQUEST FITXER CONTÉ TOTS ELS TEXTOS DEL WEB, EN CATALÀ (ca) I CASTELLÀ (es).",
+    "Per canviar un text: busca la frase, canvia-la entre les cometes i desa. No esborris les cometes ni les comes.",
+    "**paraula** = negreta · [text](ruta:consulta) = enllaç a una pàgina del web · [text](https://...) = enllaç extern · \\n = salt de línia.",
+    "ATENCIÓ: no canviïs les adreces de la secció 'rutes' sense parlar-ne abans: es perd posicionament a Google.",
+    "Els articles del blog i els textos legals són a la carpeta src/content (un fitxer per article i idioma)."
+  ],
+
+  "negoci": {
+    "nom": "Fisio Vall del Corb",
+    "url": "https://fisiocorb.cat",
+    "telefon": "+34636796207",
+    "telefonVisible": "636 79 62 07",
+    "whatsapp": "https://wa.me/34636796207",
+    "googleMaps": "https://www.google.com/maps/search/?api=1&query=Fisio+Vall+del+Corb",
+    "googleRessenyes": "https://www.google.com/search?q=Fisio+Vall+del+Corb",
+    "logo": "/img/logo-fisio-vall-del-corb.png",
+    "notaGoogle": "4,9",
+    "numRessenyes": "41",
+    "fundador": "Óscar González",
+    "preus": "55 €–130 €",
+    "zonaServei": ["Belianes", "Bellpuig", "Tàrrega", "Arbeca", "Juneda", "Les Borges Blanques", "Anglesola", "Els Omellons", "Vilanova de Bellpuig"]
+  },
+
+  "rutes": {
+    "inici":       { "ca": "/",                                                     "es": "/es/" },
+    "comTreballo": { "ca": "/com-treballo/",                                        "es": "/es/como-trabajo/" },
+    "consulta":    { "ca": "/fisioterapeuta-bellpuig/",                             "es": "/es/fisioterapeuta-bellpuig/" },
+    "bici":        { "ca": "/estudi-biomecanic-bicicleta/",                         "es": "/es/estudio-biomecanico-bicicleta/" },
+    "domicili":    { "ca": "/fisioterapia-domicili/",                               "es": "/es/fisioterapia-domicilio/" },
+    "tarrega":     { "ca": "/arees-dactuacio/fisioterapia-a-domicili-a-tarrega/",   "es": "/es/areas-de-actuacion/fisioterapia-a-domicilio-en-tarrega/" },
+    "arbeca":      { "ca": "/arees-dactuacio/fisioterapia-a-domicili-a-arbeca/",    "es": "/es/areas-de-actuacion/fisioterapia-a-domicilio-en-arbeca/" },
+    "juneda":      { "ca": "/arees-dactuacio/fisioterapia-a-domicili-a-juneda/",    "es": "/es/areas-de-actuacion/fisioterapia-a-domicilio-en-juneda/" },
+    "borges":      { "ca": "/arees-dactuacio/fisioterapia-a-domicili-a-les-borges-blanques/", "es": "/es/areas-de-actuacion/fisioterapia-a-domicilio-en-les-borges-blanques/" },
+    "blog":        { "ca": "/blog/",                                                "es": "/es/blog/" },
+    "avisLegal":   { "ca": "/avis-legal/",                                          "es": "/es/aviso-legal/" },
+    "privacitat":  { "ca": "/politica-de-privacitat/",                              "es": "/es/politica-de-privacidad/" },
+    "cookies":     { "ca": "/politica-de-cookies/",                                 "es": "/es/politica-de-cookies/" }
+  },
+
+  "comu": {
+    "saltaContingut": { "ca": "Salta al contingut", "es": "Saltar al contenido" },
+    "logoAlt": { "ca": "Fisio Vall del Corb", "es": "Fisio Vall del Corb" },
+    "logoInici": { "ca": "Fisio Vall del Corb, inici", "es": "Fisio Vall del Corb, inicio" },
+    "nav": {
+      "inici": { "ca": "Inici", "es": "Inicio" },
+      "comTreballo": { "ca": "Com treballo", "es": "Cómo trabajo" },
+      "consulta": { "ca": "Consulta Bellpuig", "es": "Consulta Bellpuig" },
+      "domicili": { "ca": "A domicili", "es": "A domicilio" },
+      "blog": { "ca": "Blog", "es": "Blog" },
+      "contacte": { "ca": "Contacte", "es": "Contacto" },
+      "demanaCita": { "ca": "Demana cita", "es": "Pide cita" },
+      "menu": { "ca": "Menú", "es": "Menú" },
+      "tancar": { "ca": "Tancar", "es": "Cerrar" },
+      "principal": { "ca": "Menú principal", "es": "Menú principal" }
+    },
+    "idioma": {
+      "etiqueta": { "ca": "Idioma", "es": "Idioma" },
+      "ca": { "ca": "Català", "es": "Català" },
+      "es": { "ca": "Castellano", "es": "Castellano" }
+    },
+    "whatsapp": {
+      "demanaCita": { "ca": "Demana cita per WhatsApp", "es": "Pide cita por WhatsApp" },
+      "barraTruca": { "ca": "Truca", "es": "Llama" },
+      "barraTrucaAria": { "ca": "Truca al 636 79 62 07", "es": "Llama al 636 79 62 07" },
+      "barraWhatsapp": { "ca": "WhatsApp", "es": "WhatsApp" }
+    },
+    "peu": {
+      "titol": { "ca": "Vols tornar\na fer el que\nt’agrada?", "es": "¿Quieres volver\na hacer lo que\nte gusta?" },
+      "boto": { "ca": "Demana cita per WhatsApp", "es": "Pide cita por WhatsApp" },
+      "nom": { "ca": "Fisio\nVall del\nCorb", "es": "Fisio\nVall del\nCorb" },
+      "lema": { "ca": "Implicació\nMoviment\nResultats", "es": "Implicación\nMovimiento\nResultados" },
+      "mapaWeb": { "ca": "Mapa del web", "es": "Mapa del sitio" },
+      "serveis": { "ca": "Serveis", "es": "Servicios" },
+      "sobreMi": { "ca": "Sobre mi", "es": "Sobre mí" },
+      "ressenyes": { "ca": "Ressenyes", "es": "Reseñas" },
+      "faq": { "ca": "Preguntes freqüents", "es": "Preguntas frecuentes" },
+      "bici": { "ca": "Biomecànica de bici", "es": "Biomecánica de bici" },
+      "domicili": { "ca": "Fisioteràpia a domicili", "es": "Fisioterapia a domicilio" },
+      "whatsapp": { "ca": "WhatsApp 636 79 62 07", "es": "WhatsApp 636 79 62 07" },
+      "avisLegal": { "ca": "Avís legal", "es": "Aviso legal" },
+      "privacitat": { "ca": "Privacitat", "es": "Privacidad" },
+      "cookies": { "ca": "Cookies", "es": "Cookies" }
+    },
+    "mapa": {
+      "aria": { "ca": "Veure Fisio Vall del Corb a Google Maps", "es": "Ver Fisio Vall del Corb en Google Maps" },
+      "descripcio": { "ca": "Mapa de la zona on fa fisioteràpia a domicili: Belianes, Bellpuig, Tàrrega, Anglesola, Arbeca, Juneda, les Borges Blanques i rodalies", "es": "Mapa de la zona donde hace fisioterapia a domicilio: Belianes, Bellpuig, Tàrrega, Anglesola, Arbeca, Juneda, les Borges Blanques y alrededores" },
+      "consulta": { "ca": "Bellpuig · consulta", "es": "Bellpuig · consulta" },
+      "veureMaps": { "ca": "Veure a Google Maps →", "es": "Ver en Google Maps →" }
+    },
+    "estrelles": { "ca": "5 estrelles", "es": "5 estrellas" },
+    "ressenyaGoogle": { "ca": "Ressenya de Google", "es": "Reseña de Google" },
+    "error404": {
+      "titolPagina": { "ca": "Pàgina no trobada | Fisio Vall del Corb", "es": "Página no encontrada | Fisio Vall del Corb" },
+      "titol": { "ca": "Aquesta pàgina no existeix.", "es": "Esta página no existe." },
+      "text": { "ca": "Potser l’adreça ha canviat. Torna a l’inici o escriu-me per WhatsApp.", "es": "Quizá la dirección ha cambiado. Vuelve al inicio o escríbeme por WhatsApp." },
+      "boto": { "ca": "Torna a l’inici", "es": "Volver al inicio" }
+    }
+  },
+
+  "inici": {
+    "seo": {
+      "titol": { "ca": "Fisio Vall del Corb | Fisioteràpia a l’Urgell i rodalies", "es": "Fisio Vall del Corb | Fisioterapia en el Urgell y alrededores" },
+      "descripcio": { "ca": "Fisio Vall del Corb: fisioteràpia per entendre el teu dolor i sortir del bucle de lesions que tornen. Consulta i domicili a l’Urgell, Pla d’Urgell i Garrigues.", "es": "Fisio Vall del Corb: fisioterapia para entender tu dolor y salir del bucle de lesiones que vuelven. Consulta y domicilio en el Urgell, Pla d’Urgell y Garrigues." }
+    },
+    "hero": {
+      "h1": { "ca": "Fisio Vall del Corb · Fisioteràpia a l’Urgell, Pla d’Urgell i Garrigues", "es": "Fisio Vall del Corb · Fisioterapia en el Urgell, Pla d’Urgell y Garrigues" },
+      "titol": { "ca": "Et fa mal,\npares, millora…\ni torna.", "es": "Te duele,\nparas, mejora…\ny vuelve." },
+      "text": { "ca": "Si et passa una vegada i una altra, cal entendre què falla i què has de canviar. T’ajudo a fer-ho, a la consulta de Bellpuig o a casa teva.", "es": "Si te pasa una y otra vez, hay que entender qué falla y qué tienes que cambiar. Te ayudo a hacerlo, en la consulta de Bellpuig o en tu casa." },
+      "boto": { "ca": "Explica’m què et passa", "es": "Cuéntame qué te pasa" },
+      "enllac": { "ca": "Com treballo", "es": "Cómo trabajo" },
+      "imatgeAlt": { "ca": "L’Óscar observa com una pacient s’aixeca de la cadira amb dolor de genoll", "es": "Óscar observa cómo una paciente se levanta de la silla con dolor de rodilla" }
+    },
+    "problema": {
+      "imatgeAlt": { "ca": "Dona a l’hort que s’atura amb la mà a l’esquena baixa per dolor", "es": "Mujer en el huerto que se detiene con la mano en la zona lumbar por dolor" },
+      "titol": { "ca": "Lesions que tornen?\nDolor que no marxa?", "es": "¿Lesiones que vuelven?\n¿Dolor que no se va?" },
+      "p1": { "ca": "Repòs, pastilles, sessions soltes. Millores uns dies i, quan tornes a l’hort, a la feina o a córrer, el dolor reapareix.", "es": "Reposo, pastillas, sesiones sueltas. Mejoras unos días y, cuando vuelves al huerto, al trabajo o a correr, el dolor reaparece." },
+      "p2": { "ca": "El dolor és l’avís, no el problema. Primer busquem què el provoca.", "es": "El dolor es el aviso, no el problema. Primero buscamos qué lo provoca." },
+      "boto": { "ca": "Explica’m què et passa", "es": "Cuéntame qué te pasa" }
+    },
+    "fases": {
+      "titol": { "ca": "Com treballo:\nquatre fases.", "es": "Cómo trabajo:\ncuatro fases." },
+      "intro": { "ca": "Saps en tot moment on ets i què ve després. Avancem amb criteris, no per calendari.", "es": "Sabes en todo momento dónde estás y qué viene después. Avanzamos con criterios, no por calendario." },
+      "llista": [
+        { "titol": { "ca": "Entendre", "es": "Entender" }, "text": { "ca": "Et valoro amb proves funcionals. Surts sabent què et passa i per què.", "es": "Te valoro con pruebas funcionales. Sales sabiendo qué te pasa y por qué." } },
+        { "titol": { "ca": "Calmar i ordenar", "es": "Calmar y ordenar" }, "text": { "ca": "Baixem el dolor ajustant el que fas, sense aturar-ho tot.", "es": "Bajamos el dolor ajustando lo que haces, sin pararlo todo." } },
+        { "titol": { "ca": "Construir", "es": "Construir" }, "text": { "ca": "Força i confiança amb exercicis que pugen de nivell quan el cos respon.", "es": "Fuerza y confianza con ejercicios que suben de nivel cuando el cuerpo responde." } },
+        { "titol": { "ca": "Tornar-hi", "es": "Volver" }, "text": { "ca": "A caminar, a treballar, a l’hort o a l’esport. Amb eines per no començar de zero.", "es": "A caminar, a trabajar, al huerto o al deporte. Con herramientas para no empezar de cero." } }
+      ],
+      "boto": { "ca": "Demana cita", "es": "Pide cita" },
+      "enllac": { "ca": "Coneix el meu mètode", "es": "Conoce mi método" }
+    },
+    "serveis": {
+      "titol": { "ca": "En què et puc ajudar?", "es": "¿En qué te puedo ayudar?" },
+      "llista": [
+        { "icona": "dolor", "titol": { "ca": "Dolor\nmusculoesquelètic", "es": "Dolor\nmusculoesquelético" }, "text": { "ca": "Esquena, coll, espatlla, colze, genoll…", "es": "Espalda, cuello, hombro, codo, rodilla…" },
+          "enllacos": [ { "ruta": "consulta", "text": { "ca": "A la consulta de Bellpuig", "es": "En la consulta de Bellpuig" } } ] },
+        { "icona": "esport", "titol": { "ca": "Lesions\nesportives", "es": "Lesiones\ndeportivas" }, "text": { "ca": "Corredors, ciclistes i esportistes habituals.", "es": "Corredores, ciclistas y deportistas habituales." },
+          "enllacos": [ { "ruta": "consulta", "text": { "ca": "A la consulta de Bellpuig", "es": "En la consulta de Bellpuig" } }, { "ruta": "bici", "text": { "ca": "Biomecànica de bici", "es": "Biomecánica de bici" } } ] },
+        { "icona": "postop", "titol": { "ca": "Rehabilitació\npostoperatòria", "es": "Rehabilitación\nposoperatoria" }, "text": { "ca": "Recupera força, control i confiança.", "es": "Recupera fuerza, control y confianza." },
+          "enllacos": [ { "ruta": "consulta", "text": { "ca": "A la consulta de Bellpuig", "es": "En la consulta de Bellpuig" } } ] },
+        { "icona": "casa", "titol": { "ca": "Fisioteràpia\na domicili", "es": "Fisioterapia\na domicilio" }, "text": { "ca": "Atenció personalitzada a casa teva (radi 20 km).", "es": "Atención personalizada en tu casa (radio de 20 km)." },
+          "enllacos": [ { "ruta": "domicili", "text": { "ca": "Zones i preus", "es": "Zonas y precios" } } ] }
+      ]
+    },
+    "sobreMi": {
+      "imatgeAlt": { "ca": "Óscar González, fisioterapeuta de Fisio Vall del Corb", "es": "Óscar González, fisioterapeuta de Fisio Vall del Corb" },
+      "titol": { "ca": "Soc l’Óscar\nGonzález.", "es": "Soy Óscar\nGonzález." },
+      "text": { "ca": "Fisioterapeuta des de 1999. Treballo sol: qui et valora és qui t’acompanya fins al final.", "es": "Fisioterapeuta desde 1999. Trabajo solo: quien te valora es quien te acompaña hasta el final." },
+      "valors": [
+        { "nom": { "ca": "Implicació", "es": "Implicación" }, "text": { "ca": "Tu hi poses part de la feina i entens per què la fas.", "es": "Tú pones parte del trabajo y entiendes por qué lo haces." } },
+        { "nom": { "ca": "Moviment", "es": "Movimiento" }, "text": { "ca": "L’exercici és l’eina principal.", "es": "El ejercicio es la herramienta principal." } },
+        { "nom": { "ca": "Resultats", "es": "Resultados" }, "text": { "ca": "Mirem com respons i ajustem.", "es": "Miramos cómo respondes y ajustamos." } }
+      ],
+      "acreditacio": { "ca": "Acreditat per l’AMIR (Mézières) · Especialista de La Clínica del Corredor", "es": "Acreditado por la AMIR (Mézières) · Especialista de La Clínica del Corredor" },
+      "boto": { "ca": "Parlem del teu cas", "es": "Hablemos de tu caso" },
+      "enllac": { "ca": "Més sobre mi", "es": "Más sobre mí" }
+    },
+    "ressenyes": {
+      "titol": { "ca": "El que diuen\nels pacients.", "es": "Lo que dicen\nlos pacientes." },
+      "numRessenyes": { "ca": "41 ressenyes a Google", "es": "41 reseñas en Google" },
+      "llista": [
+        { "text": { "ca": "«Bon professional. Molt atent amb els seus clients.»", "es": "«Buen profesional. Muy atento con sus clientes.»" }, "autor": "Peñi Flores Pascual" },
+        { "text": { "ca": "«Recomano al 100%.»", "es": "«Lo recomiendo al 100%.»" }, "autor": "Marta Rovira" }
+      ],
+      "veureTotes": { "ca": "Veure totes les ressenyes a Google", "es": "Ver todas las reseñas en Google" },
+      "deixaRessenya": { "ca": "Ja has vingut? Deixa’m la teva ressenya", "es": "¿Ya has venido? Déjame tu reseña" },
+      "boto": { "ca": "Demana cita", "es": "Pide cita" }
+    },
+    "faq": {
+      "titol": { "ca": "Preguntes\nfreqüents.", "es": "Preguntas\nfrecuentes." },
+      "intro": { "ca": "Si no hi trobes la teva, escriu-me per WhatsApp i t’ho explico.", "es": "Si no encuentras la tuya, escríbeme por WhatsApp y te lo explico." },
+      "llista": [
+        { "pregunta": { "ca": "Necessito un diagnòstic mèdic abans de venir?", "es": "¿Necesito un diagnóstico médico antes de venir?" },
+          "resposta": { "ca": "No cal. A la primera visita faig una valoració completa i, si veig alguna cosa que necessita una prova o la mirada d’un metge, t’ho dic i et derivo.", "es": "No hace falta. En la primera visita hago una valoración completa y, si veo algo que necesita una prueba o la mirada de un médico, te lo digo y te derivo." } },
+        { "pregunta": { "ca": "Quantes sessions necessitaré?", "es": "¿Cuántas sesiones necesitaré?" },
+          "resposta": { "ca": "Depèn del cas. Al final de la primera visita t’explico què et passa, quines fases tindrà el procés i com sabrem que avances. No et vendré sessions per inèrcia.", "es": "Depende del caso. Al final de la primera visita te explico qué te pasa, qué fases tendrá el proceso y cómo sabremos que avanzas. No te venderé sesiones por inercia." } },
+        { "pregunta": { "ca": "He de deixar de córrer o d’anar en bici?", "es": "¿Tengo que dejar de correr o de ir en bici?" },
+          "resposta": { "ca": "Gairebé mai del tot. Ajustem la càrrega perquè puguis seguir actiu mentre el dolor baixa, i la tornem a pujar amb criteris.", "es": "Casi nunca del todo. Ajustamos la carga para que puedas seguir activo mientras el dolor baja, y la volvemos a subir con criterio." } },
+        { "pregunta": { "ca": "Quant costa?", "es": "¿Cuánto cuesta?" },
+          "resposta": { "ca": "A la [consulta de Bellpuig](ruta:consulta), la sessió són 55 €. El seguiment mensual, amb seguiment setmanal per WhatsApp i ajust d’exercicis, són 45 € al mes. A domicili, des de 55 € segons la distància.", "es": "En la [consulta de Bellpuig](ruta:consulta), la sesión son 55 €. El seguimiento mensual, con seguimiento semanal por WhatsApp y ajuste de ejercicios, son 45 € al mes. A domicilio, desde 55 € según la distancia." } },
+        { "pregunta": { "ca": "Fins on véns a domicili?", "es": "¿Hasta dónde vienes a domicilio?" },
+          "resposta": { "ca": "Fins a uns 20 km de Belianes: Urgell, Pla d’Urgell i Garrigues. Tens la llista de pobles i els preus a [fisioteràpia a domicili](ruta:domicili). Si dubtes si arribo al teu poble, pregunta’m.", "es": "Hasta unos 20 km de Belianes: Urgell, Pla d’Urgell y Garrigues. Tienes la lista de pueblos y los precios en [fisioterapia a domicilio](ruta:domicili). Si dudas de si llego a tu pueblo, pregúntame." } },
+        { "pregunta": { "ca": "Quin horari tens?", "es": "¿Qué horario tienes?" },
+          "resposta": { "ca": "Dilluns i dimecres, de 9 a 14 i de 15 a 20 h. Dimarts i dijous, de 15 a 20 h. Divendres, de 9 a 14 h.", "es": "Lunes y miércoles, de 9 a 14 y de 15 a 20 h. Martes y jueves, de 15 a 20 h. Viernes, de 9 a 14 h." } }
+      ],
+      "boto": { "ca": "Tens un altre dubte? Pregunta’m", "es": "¿Tienes otra duda? Pregúntame" }
+    }
+  },
+
+  "blog": {
+    "seo": {
+      "titol": {
+        "ca": "Blog de fisioteràpia | Fisio Vall del Corb",
+        "es": "Blog de fisioterapia | Fisio Vall del Corb"
+      },
+      "descripcio": {
+        "ca": "Articles per entendre què et passa i què pots fer des de casa: dolor d’esquena, postura, corredors i mobilitat.",
+        "es": "Artículos para entender qué te pasa y qué puedes hacer desde casa: dolor de espalda, postura, corredores y movilidad."
+      }
+    },
+    "titol": {
+      "ca": "Blog",
+      "es": "Blog"
+    },
+    "intro": {
+      "ca": "Articles per entendre què et passa i què pots fer des de casa. Dolor d’esquena, postura, corredors i mobilitat.",
+      "es": "Artículos para entender qué te pasa y qué puedes hacer desde casa. Dolor de espalda, postura, corredores y movilidad."
+    },
+    "llegeix": {
+      "ca": "Llegeix l’article",
+      "es": "Leer el artículo"
+    },
+    "tornar": {
+      "ca": "Tots els articles",
+      "es": "Todos los artículos"
+    },
+    "nomesCatala": {
+      "ca": "",
+      "es": "Este artículo solo está disponible en catalán."
+    },
+    "nomesCastella": {
+      "ca": "Aquest article només està disponible en castellà.",
+      "es": ""
+    },
+    "cta": {
+      "titol": {
+        "ca": "Et fa mal i no saps per què?",
+        "es": "¿Te duele y no sabes por qué?"
+      },
+      "text": {
+        "ca": "Primer entenem què falla i després t’ajudo a canviar-ho. A la consulta de Bellpuig o a casa teva.",
+        "es": "Primero entendemos qué falla y después te ayudo a cambiarlo. En la consulta de Bellpuig o en tu casa."
+      },
+      "whatsapp": {
+        "ca": "Escriu-me per WhatsApp",
+        "es": "Escríbeme por WhatsApp"
+      }
+    }
+  },
+
+  "comTreballo": {
+    "seo": {
+      "titol": {
+        "ca": "Com treballo: fisioteràpia amb un procés clar | Fisio Vall del Corb",
+        "es": "Cómo trabajo: fisioterapia con un proceso claro | Fisio Vall del Corb"
+      },
+      "descripcio": {
+        "ca": "Valoració, pla per fases i exercici guiat per sortir del bucle de dolor que torna. Així treballo a Bellpuig i a domicili a l’Urgell. Óscar González, fisioterapeuta.",
+        "es": "Valoración, plan por fases y ejercicio guiado para salir del bucle del dolor que vuelve. Así trabajo en Bellpuig y a domicilio en el Urgell. Óscar González, fisioterapeuta."
+      }
+    },
+    "hero": {
+      "h1": {
+        "ca": "Com treballo",
+        "es": "Cómo trabajo"
+      },
+      "titol": {
+        "ca": "Et fa mal, pares, millora… i torna.",
+        "es": "Te duele, paras, mejora… y vuelve."
+      },
+      "p1": {
+        "ca": "Si et passa una vegada i una altra, el problema no és que no hagis descansat prou. És que ningú t’ha explicat per què passa ni què cal canviar.",
+        "es": "Si te pasa una y otra vez, el problema no es que no hayas descansado lo suficiente. Es que nadie te ha explicado por qué pasa ni qué hay que cambiar."
+      },
+      "p2": {
+        "ca": "La meva feina és ajudar-te a sortir d’aquest bucle amb un procés per fases, on saps en tot moment on ets i què ve després.",
+        "es": "Mi trabajo es ayudarte a salir de ese bucle con un proceso por fases, en el que sabes en todo momento dónde estás y qué viene después."
+      }
+    },
+    "fases": {
+      "titol": {
+        "ca": "Quatre fases.",
+        "es": "Cuatro fases."
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "Entendre",
+            "es": "Entender"
+          },
+          "text": {
+            "ca": "T’escolto i et valoro amb proves funcionals. Si aporta informació, fem servir EMG de superfície. Surts sabent què et passa i per què.",
+            "es": "Te escucho y te valoro con pruebas funcionales. Si aporta información, usamos EMG de superficie. Sales sabiendo qué te pasa y por qué."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Calmar i ordenar",
+            "es": "Calmar y ordenar"
+          },
+          "text": {
+            "ca": "Baixem el dolor ajustant el que fas, sense parar-ho tot. Recuperes la sensació de control.",
+            "es": "Bajamos el dolor ajustando lo que haces, sin pararlo todo. Recuperas la sensación de control."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Construir",
+            "es": "Construir"
+          },
+          "text": {
+            "ca": "Guanyem força i confiança amb exercicis que pugen de nivell quan el teu cos respon, no perquè toca segons el calendari.",
+            "es": "Ganamos fuerza y confianza con ejercicios que suben de nivel cuando tu cuerpo responde, no porque toque según el calendario."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Tornar-hi",
+            "es": "Volver"
+          },
+          "text": {
+            "ca": "Tornes a caminar, a treballar, a l’hort o a l’esport. I te’n vas amb eines per no començar de zero si un dia molesta.",
+            "es": "Vuelves a caminar, a trabajar, al huerto o al deporte. Y te vas con herramientas para no empezar de cero si un día molesta."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Explica’m el teu cas per WhatsApp",
+        "es": "Cuéntame tu caso por WhatsApp"
+      }
+    },
+    "compromis": {
+      "tuTitol": {
+        "ca": "Què faràs tu.",
+        "es": "Qué harás tú."
+      },
+      "tu": [
+        {
+          "ca": "Exercicis a casa, pocs i ben triats, que entens per què fas.",
+          "es": "Ejercicios en casa, pocos y bien elegidos, que entiendes por qué haces."
+        },
+        {
+          "ca": "Dir-me com respons. Una mica de molèstia durant l’exercici pot ser normal; el que mirem és com estàs l’endemà.",
+          "es": "Decirme cómo respondes. Un poco de molestia durante el ejercicio puede ser normal; lo que miramos es cómo estás al día siguiente."
+        },
+        {
+          "ca": "Seguiment setmanal per WhatsApp, per ajustar sense haver de venir cada vegada.",
+          "es": "Seguimiento semanal por WhatsApp, para ajustar sin tener que venir cada vez."
+        }
+      ],
+      "joTitol": {
+        "ca": "Què no faré.",
+        "es": "Qué no haré."
+      },
+      "jo": [
+        {
+          "ca": "Fer-te venir setmanes i setmanes perquè t’estiguis estirat a la llitera.",
+          "es": "Hacerte venir semanas y semanas para que estés tumbado en la camilla."
+        },
+        {
+          "ca": "Dir-te que «és l’edat» i que t’hi has de conformar.",
+          "es": "Decirte que «es la edad» y que tienes que conformarte."
+        },
+        {
+          "ca": "Vendre’t un nombre de sessions abans de saber què et passa.",
+          "es": "Venderte un número de sesiones antes de saber qué te pasa."
+        }
+      ],
+      "boto": {
+        "ca": "Comencem? Demana cita",
+        "es": "¿Empezamos? Pide cita"
+      }
+    },
+    "sobreMi": {
+      "imatgeAlt": {
+        "ca": "Retrat d’Óscar González, fisioterapeuta",
+        "es": "Retrato de Óscar González, fisioterapeuta"
+      },
+      "titol": {
+        "ca": "Soc l’Óscar González.",
+        "es": "Soy Óscar González."
+      },
+      "p1": {
+        "ca": "Soc fisioterapeuta des de 1999. En tots aquests anys he vist molts cops la mateixa història: algú millora uns dies, torna a la seva vida i el dolor reapareix. Gairebé sempre perquè ningú li havia explicat per què passava.",
+        "es": "Soy fisioterapeuta desde 1999. En todos estos años he visto muchas veces la misma historia: alguien mejora unos días, vuelve a su vida y el dolor reaparece. Casi siempre porque nadie le había explicado por qué pasaba."
+      },
+      "p2": {
+        "ca": "Treballo sol, a la consulta de Bellpuig i a domicili. Qui et valora és qui et tracta i qui et fa el seguiment fins al final. Col·legiat núm. 3000, acreditat per l’Associació Mézierista Iberoamericana de Fisioteràpia (AMIR) i especialista de La Clínica del Corredor en lesions de running.",
+        "es": "Trabajo solo, en la consulta de Bellpuig y a domicilio. Quien te valora es quien te trata y quien te hace el seguimiento hasta el final. Colegiado n.º 3000, acreditado por la Asociación Mézierista Iberoamericana de Fisioterapia (AMIR) y especialista de La Clínica del Corredor en lesiones de running."
+      },
+      "valors": [
+        {
+          "nom": {
+            "ca": "Implicació",
+            "es": "Implicación"
+          },
+          "text": {
+            "ca": "Tu hi poses part de la feina. Jo t’explico què fem i per què, perquè puguis decidir i continuar pel teu compte.",
+            "es": "Tú pones parte del trabajo. Yo te explico qué hacemos y por qué, para que puedas decidir y seguir por tu cuenta."
+          }
+        },
+        {
+          "nom": {
+            "ca": "Moviment",
+            "es": "Movimiento"
+          },
+          "text": {
+            "ca": "L’exercici és l’eina principal. La teràpia manual ajuda quan cal, però el canvi ve del que fas cada setmana.",
+            "es": "El ejercicio es la herramienta principal. La terapia manual ayuda cuando hace falta, pero el cambio viene de lo que haces cada semana."
+          }
+        },
+        {
+          "nom": {
+            "ca": "Resultats",
+            "es": "Resultados"
+          },
+          "text": {
+            "ca": "Mirem com respons i ajustem la càrrega. Pugem de nivell quan el teu cos ho aguanta bé.",
+            "es": "Miramos cómo respondes y ajustamos la carga. Subimos de nivel cuando tu cuerpo lo aguanta bien."
+          }
+        }
+      ],
+      "p3": {
+        "ca": "Tinc una formació extensa en teràpia manual i en exercici terapèutic, i la continuo ampliant cada any. Així puc triar en cada cas l’eina que més t’ajuda: les mans per calmar el dolor i recuperar mobilitat, i l’exercici per guanyar força i confiança.",
+        "es": "Tengo una formación amplia en terapia manual y en ejercicio terapéutico, y la sigo ampliando cada año. Así puedo elegir en cada caso la herramienta que más te ayuda: las manos para calmar el dolor y recuperar movilidad, y el ejercicio para ganar fuerza y confianza."
+      },
+      "formacioTitol": {
+        "ca": "Formació",
+        "es": "Formación"
+      },
+      "formacio": [
+        {
+          "ca": "Diplomat en Fisioteràpia · Escola Gimbernat (UAB), 1996–1999",
+          "es": "Diplomado en Fisioterapia · Escola Gimbernat (UAB), 1996–1999"
+        },
+        {
+          "ca": "Postgrau en prevenció i reeducació de lesions esportives",
+          "es": "Posgrado en prevención y reeducación de lesiones deportivas"
+        },
+        {
+          "ca": "Formació en novetats en la prevenció de lesions en el corredor",
+          "es": "Formación en novedades en la prevención de lesiones en el corredor"
+        },
+        {
+          "ca": "Postgrau en síndrome de dolor miofascial i punció seca",
+          "es": "Posgrado en síndrome de dolor miofascial y punción seca"
+        },
+        {
+          "ca": "Curs de neuromodulació no ecoguiada",
+          "es": "Curso de neuromodulación no ecoguiada"
+        },
+        {
+          "ca": "Postgrau en teràpia postural global · mètode Mézières",
+          "es": "Posgrado en terapia postural global · método Mézières"
+        },
+        {
+          "ca": "Teràpia manual · concepte Mulligan (nivells AB i CD)",
+          "es": "Terapia manual · concepto Mulligan (niveles AB y CD)"
+        },
+        {
+          "ca": "Teràpia manual · conceptes McConnell i Sohier",
+          "es": "Terapia manual · conceptos McConnell y Sohier"
+        },
+        {
+          "ca": "Postgrau en Geriatria",
+          "es": "Posgrado en Geriatría"
+        }
+      ],
+      "boto": {
+        "ca": "Parla amb mi per WhatsApp",
+        "es": "Habla conmigo por WhatsApp"
+      }
+    }
+  },
+
+  "consulta": {
+    "seo": {
+      "titol": {
+        "ca": "Fisioterapeuta a Bellpuig amb cita prèvia | Fisio Vall del Corb",
+        "es": "Fisioterapeuta en Bellpuig con cita previa | Fisio Vall del Corb"
+      },
+      "descripcio": {
+        "ca": "Consulta de fisioteràpia a Bellpuig: dolor persistent, lesions esportives i rehabilitació postoperatòria. Valoració completa i pla clar. Visita 55 €. Cita per WhatsApp.",
+        "es": "Consulta de fisioterapia en Bellpuig: dolor persistente, lesiones deportivas y rehabilitación postoperatoria. Valoración completa y plan claro. Visita 55 €. Cita por WhatsApp."
+      }
+    },
+    "hero": {
+      "h1": {
+        "ca": "Fisioterapeuta a Bellpuig",
+        "es": "Fisioterapeuta en Bellpuig"
+      },
+      "titol": {
+        "ca": "Un espai\nper entendre\ni treballar\nel teu cas.",
+        "es": "Un espacio\npara entender\ny trabajar\ntu caso."
+      },
+      "text": {
+        "ca": "Visites amb cita prèvia i sense presses. Hi ha espai per valorar-te bé, fer els exercicis amb mi i comprovar com respons.",
+        "es": "Visitas con cita previa y sin prisas. Hay espacio para valorarte bien, hacer los ejercicios conmigo y comprobar cómo respondes."
+      },
+      "boto": {
+        "ca": "Demana cita a Bellpuig",
+        "es": "Pide cita en Bellpuig"
+      },
+      "imatgeAlt": {
+        "ca": "Fisioterapeuta valorant l’espatlla d’un pacient a la consulta",
+        "es": "Fisioterapeuta valorando el hombro de un paciente en la consulta"
+      }
+    },
+    "perAQui": {
+      "titol": {
+        "ca": "Per a qui és\nla consulta.",
+        "es": "Para quién es\nla consulta."
+      },
+      "imatgeAlt": {
+        "ca": "Mà del fisioterapeuta sobre la mà d’una pacient operada del canell, amb la cicatriu i les tires de sutura",
+        "es": "Mano del fisioterapeuta sobre la mano de una paciente operada de la muñeca, con la cicatriz y las tiras de sutura"
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "Dolor que no marxa",
+            "es": "Dolor que no se va"
+          },
+          "text": {
+            "ca": "Fa mesos que t’acompanya, ja has provat coses i et diuen que «és l’edat». Venim a entendre per què no millora.",
+            "es": "Hace meses que te acompaña, ya has probado cosas y te dicen que «es la edad». Venimos a entender por qué no mejora."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Després d’una operació",
+            "es": "Después de una operación"
+          },
+          "text": {
+            "ca": "Pròtesi, fractura o lligament. Recuperar força i confiança amb un pla per fases.",
+            "es": "Prótesis, fractura o ligamento. Recuperar fuerza y confianza con un plan por fases."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Corredors i esportistes",
+            "es": "Corredores y deportistas"
+          },
+          "text": {
+            "ca": "Lesions que tornen cada temporada. Valoració de carrera i un pla de càrrega per tornar-hi.",
+            "es": "Lesiones que vuelven cada temporada. Valoración de carrera y un plan de carga para volver."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Demana cita a Bellpuig",
+        "es": "Pide cita en Bellpuig"
+      }
+    },
+    "primeraVisita": {
+      "titol": {
+        "ca": "Com és la\nprimera visita.",
+        "es": "Cómo es la\nprimera visita."
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "M’expliques la teva història",
+            "es": "Me cuentas tu historia"
+          },
+          "text": {
+            "ca": "Què et passa, des de quan, què has provat i què vols tornar a fer.",
+            "es": "Qué te pasa, desde cuándo, qué has probado y qué quieres volver a hacer."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Et valoro de veritat",
+            "es": "Te valoro de verdad"
+          },
+          "text": {
+            "ca": "Proves funcionals i, si aporta informació, EMG de superfície per veure com activen els músculs.",
+            "es": "Pruebas funcionales y, si aporta información, EMG de superficie para ver cómo se activan los músculos."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Surts amb un pla clar",
+            "es": "Sales con un plan claro"
+          },
+          "text": {
+            "ca": "Què passa, quines fases tindrà el procés i els primers exercicis, ja provats amb mi.",
+            "es": "Qué pasa, qué fases tendrá el proceso y los primeros ejercicios, ya probados conmigo."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Reserva la primera visita",
+        "es": "Reserva la primera visita"
+      }
+    },
+    "preus": {
+      "titol": {
+        "ca": "Preus clars.",
+        "es": "Precios claros."
+      },
+      "intro": {
+        "ca": "El més habitual és començar amb la visita i el seguiment del primer mes.",
+        "es": "Lo más habitual es empezar con la visita y el seguimiento del primer mes."
+      },
+      "llista": [
+        {
+          "nom": {
+            "ca": "Visita a la consulta",
+            "es": "Visita en la consulta"
+          },
+          "text": {
+            "ca": "Valoració completa o visita de control",
+            "es": "Valoración completa o visita de control"
+          },
+          "preu": {
+            "ca": "55 €",
+            "es": "55 €"
+          },
+          "periode": {
+            "ca": "",
+            "es": ""
+          }
+        },
+        {
+          "nom": {
+            "ca": "Seguiment mensual",
+            "es": "Seguimiento mensual"
+          },
+          "text": {
+            "ca": "Seguiment setmanal per WhatsApp i ajust dels exercicis. El renoves només si té sentit.",
+            "es": "Seguimiento semanal por WhatsApp y ajuste de los ejercicios. Solo lo renuevas si tiene sentido."
+          },
+          "preu": {
+            "ca": "45 €",
+            "es": "45 €"
+          },
+          "periode": {
+            "ca": "/mes",
+            "es": "/mes"
+          }
+        }
+      ],
+      "nota": {
+        "ca": "Si cal tornar a la consulta durant el procés, la visita és a 55 €.",
+        "es": "Si hace falta volver a la consulta durante el proceso, la visita es a 55 €."
+      },
+      "faq": {
+        "ca": "Tens dubtes? Preguntes freqüents",
+        "es": "¿Tienes dudas? Preguntas frecuentes"
+      },
+      "boto": {
+        "ca": "Reserva la primera visita",
+        "es": "Reserva la primera visita"
+      }
+    },
+    "onIQuan": {
+      "titol": {
+        "ca": "On i quan és la consulta de fisioteràpia a Bellpuig",
+        "es": "Dónde y cuándo es la consulta de fisioterapia en Bellpuig"
+      },
+      "onTitol": {
+        "ca": "On",
+        "es": "Dónde"
+      },
+      "on": {
+        "ca": "Bellpuig (Urgell). T’envio l’adreça exacta quan confirmem la cita.",
+        "es": "Bellpuig (Urgell). Te envío la dirección exacta cuando confirmemos la cita."
+      },
+      "quanTitol": {
+        "ca": "Quan",
+        "es": "Cuándo"
+      },
+      "quan": {
+        "ca": "De dilluns a dijous a la tarda. Sempre amb cita prèvia.",
+        "es": "De lunes a jueves por la tarde. Siempre con cita previa."
+      },
+      "comTitol": {
+        "ca": "Com",
+        "es": "Cómo"
+      },
+      "com": {
+        "ca": "Escriu-me per WhatsApp i busquem hora.",
+        "es": "Escríbeme por WhatsApp y buscamos hora."
+      }
+    },
+    "bici": {
+      "titol": {
+        "ca": "També fem estudis biomecànics de bici.",
+        "es": "También hacemos estudios biomecánicos de bici."
+      },
+      "text": {
+        "ca": "Primer et valoro a tu i després ajustem la bici al teu cos. Per a ciclistes de carretera, gravel i BTT.",
+        "es": "Primero te valoro a ti y después ajustamos la bici a tu cuerpo. Para ciclistas de carretera, gravel y BTT."
+      },
+      "boto": {
+        "ca": "Biomecànica de bici",
+        "es": "Biomecánica de bici"
+      }
+    },
+    "domicili": {
+      "text": {
+        "ca": "No pots venir a Bellpuig? També vaig a domicili.",
+        "es": "¿No puedes venir a Bellpuig? También voy a domicilio."
+      },
+      "boto": {
+        "ca": "Fisioteràpia a domicili",
+        "es": "Fisioterapia a domicilio"
+      }
+    }
+  },
+
+  "bici": {
+    "seo": {
+      "titol": {
+        "ca": "Estudi biomecànic de bicicleta a Bellpuig | Fisio Vall del Corb",
+        "es": "Estudio biomecánico de bicicleta en Bellpuig | Fisio Vall del Corb"
+      },
+      "descripcio": {
+        "ca": "Estudi biomecànic de bici fet per un fisioterapeuta: primer et valoro a tu i després ajustem la bici. 2–3 hores, una tarda a la setmana. 130 €. Carretera, gravel i BTT.",
+        "es": "Estudio biomecánico de bici hecho por un fisioterapeuta: primero te valoro a ti y después ajustamos la bici. 2–3 horas, una tarde a la semana. 130 €. Carretera, gravel y BTT."
+      }
+    },
+    "hero": {
+      "h1": {
+        "ca": "Estudi biomecànic de bicicleta",
+        "es": "Estudio biomecánico de bicicleta"
+      },
+      "titol": {
+        "ca": "La bici\ns’ha d’adaptar\na tu.",
+        "es": "La bici\nse tiene que\nadaptar a ti."
+      },
+      "text": {
+        "ca": "Mal de genoll, d’esquena o de coll després de les sortides? Mans adormides? Sovint no és la bici ni les cames: és com hi vas assegut i com està el teu cos.",
+        "es": "¿Dolor de rodilla, de espalda o de cuello después de las salidas? ¿Manos dormidas? A menudo no es la bici ni las piernas: es cómo vas sentado y cómo está tu cuerpo."
+      },
+      "boto": {
+        "ca": "Reserva el teu estudi",
+        "es": "Reserva tu estudio"
+      },
+      "imatgeAlt": {
+        "ca": "Valoració postural d’un ciclista dret al costat de la seva bicicleta de gravel al rodet, a la consulta",
+        "es": "Valoración postural de un ciclista de pie junto a su bicicleta de gravel en el rodillo, en la consulta"
+      }
+    },
+    "primerTu": {
+      "titol": {
+        "ca": "Primer tu,\ndesprés la bici.",
+        "es": "Primero tú,\ndespués la bici."
+      },
+      "p1": {
+        "ca": "Dues persones de la mateixa alçada poden necessitar posicions molt diferents. Una pot tenir els isquiotibials curts, l’altra un genoll que es queixa o una esquena que no aguanta gaires hores inclinada.",
+        "es": "Dos personas de la misma altura pueden necesitar posiciones muy diferentes. Una puede tener los isquiotibiales cortos, la otra una rodilla que se queja o una espalda que no aguanta muchas horas inclinada."
+      },
+      "p2": {
+        "ca": "Per això, abans de tocar res de la bici, et valoro a tu com a fisioterapeuta: com et mous, on tens limitacions i què et molesta. Així la bici s’ajusta al cos que tens avui, no a unes mides de taula.",
+        "es": "Por eso, antes de tocar nada de la bici, te valoro a ti como fisioterapeuta: cómo te mueves, dónde tienes limitaciones y qué te molesta. Así la bici se ajusta al cuerpo que tienes hoy, no a unas medidas de tabla."
+      },
+      "boto": {
+        "ca": "Reserva el teu estudi",
+        "es": "Reserva tu estudio"
+      }
+    },
+    "estudi": {
+      "titol": {
+        "ca": "Com és l’estudi.",
+        "es": "Cómo es el estudio."
+      },
+      "intro": {
+        "ca": "Dura entre 2 i 3 hores. Només en faig un per setmana, una tarda dedicada exclusivament a tu: no valoro amb presses.",
+        "es": "Dura entre 2 y 3 horas. Solo hago uno por semana, una tarde dedicada exclusivamente a ti: no valoro con prisas."
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "Et valoro a tu",
+            "es": "Te valoro a ti"
+          },
+          "text": {
+            "ca": "M’expliques com i quant surts, quins objectius tens i què et molesta. Revisem mobilitat, força i lesions antigues.",
+            "es": "Me cuentas cómo y cuánto sales, qué objetivos tienes y qué te molesta. Revisamos movilidad, fuerza y lesiones antiguas."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Et miro pedalar",
+            "es": "Te miro pedalear"
+          },
+          "text": {
+            "ca": "Amb la teva bici sobre el rodet, observo com pedales i com reparteixes el pes.",
+            "es": "Con tu bici sobre el rodillo, observo cómo pedaleas y cómo repartes el peso."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Ajustem i t’ho explico",
+            "es": "Ajustamos y te lo explico"
+          },
+          "text": {
+            "ca": "Fem els canvis a la bici, comprovem com et trobes i t’emportes per escrit què hem canviat i quins exercicis et convenen.",
+            "es": "Hacemos los cambios en la bici, comprobamos cómo te encuentras y te llevas por escrito qué hemos cambiado y qué ejercicios te convienen."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Reserva el teu estudi",
+        "es": "Reserva tu estudio"
+      }
+    },
+    "perAQui": {
+      "titol": {
+        "ca": "Per a tots els ciclistes.",
+        "es": "Para todos los ciclistas."
+      },
+      "llista": [
+        {
+          "ca": "Carretera, gravel o BTT.",
+          "es": "Carretera, gravel o BTT."
+        },
+        {
+          "ca": "Si tens molèsties quan surts o quan baixes de la bici.",
+          "es": "Si tienes molestias cuando sales o cuando bajas de la bici."
+        },
+        {
+          "ca": "Si estrenes bici o comences a fer sortides llargues.",
+          "es": "Si estrenas bici o empiezas a hacer salidas largas."
+        },
+        {
+          "ca": "Si vols anar més còmode i aprofitar millor cada pedalada.",
+          "es": "Si quieres ir más cómodo y aprovechar mejor cada pedalada."
+        }
+      ],
+      "preuNom": {
+        "ca": "Estudi complet",
+        "es": "Estudio completo"
+      },
+      "preu": {
+        "ca": "130 €",
+        "es": "130 €"
+      },
+      "preuDetall": {
+        "ca": "2–3 hores · Una sola tarda a la setmana, només per a tu · Consulta de Bellpuig · Porta la teva bici i la roba i les sabates amb què surts",
+        "es": "2–3 horas · Una sola tarde a la semana, solo para ti · Consulta de Bellpuig · Trae tu bici y la ropa y las zapatillas con las que sales"
+      },
+      "boto": {
+        "ca": "Reserva per WhatsApp",
+        "es": "Reserva por WhatsApp"
+      }
+    },
+    "relacionats": {
+      "consulta": {
+        "ca": "Ja tens una lesió? Consulta de Bellpuig",
+        "es": "¿Ya tienes una lesión? Consulta de Bellpuig"
+      },
+      "comTreballo": {
+        "ca": "Com treballo",
+        "es": "Cómo trabajo"
+      }
+    }
+  },
+
+  "domicili": {
+    "seo": {
+      "titol": {
+        "ca": "Fisioteràpia a domicili a l’Urgell | Fisio Vall del Corb",
+        "es": "Fisioterapia a domicilio en el Urgell | Fisio Vall del Corb"
+      },
+      "descripcio": {
+        "ca": "Fisioteràpia a casa teva després d’una operació, per a gent gran o amb dolor que et lliga a casa. Pobles a uns 20 km de Belianes. Des de 55 € la visita.",
+        "es": "Fisioterapia en tu casa después de una operación, para personas mayores o con un dolor que te ata a casa. Pueblos a unos 20 km de Belianes. Desde 55 € la visita."
+      }
+    },
+    "hero": {
+      "h1": {
+        "ca": "Fisioteràpia a domicili a l’Urgell",
+        "es": "Fisioterapia a domicilio en el Urgell"
+      },
+      "titol": {
+        "ca": "La fisioteràpia,\na casa teva.",
+        "es": "La fisioterapia,\nen tu casa."
+      },
+      "text": {
+        "ca": "Quan sortir de casa costa, després d’una operació o amb l’edat, vinc jo. Amb el mateix procés i la mateixa feina que a la consulta.",
+        "es": "Cuando salir de casa cuesta, después de una operación o con la edad, voy yo. Con el mismo proceso y el mismo trabajo que en la consulta."
+      },
+      "boto": {
+        "ca": "Demana una visita a casa",
+        "es": "Pide una visita a casa"
+      },
+      "imatgeAlt": {
+        "ca": "Persona gran fent un exercici d’equilibri passant per una escala d’agilitat",
+        "es": "Persona mayor haciendo un ejercicio de equilibrio pasando por una escalera de agilidad"
+      }
+    },
+    "perAQui": {
+      "titol": {
+        "ca": "Per a qui és.",
+        "es": "Para quién es."
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "Després d’una operació",
+            "es": "Después de una operación"
+          },
+          "text": {
+            "ca": "Genoll, maluc, espatlla o columna. Les primeres setmanes, quan desplaçar-se és difícil, la recuperació comença a casa.",
+            "es": "Rodilla, cadera, hombro o columna. Las primeras semanas, cuando desplazarse es difícil, la recuperación empieza en casa."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Gent gran i mobilitat",
+            "es": "Personas mayores y movilidad"
+          },
+          "text": {
+            "ca": "Guanyar força i estabilitat per caminar amb més seguretat i mantenir l’autonomia.",
+            "es": "Ganar fuerza y estabilidad para caminar con más seguridad y mantener la autonomía."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Dolor que et lliga a casa",
+            "es": "Dolor que te ata a casa"
+          },
+          "text": {
+            "ca": "Quan el dolor fa que anar a una consulta sigui un esforç més.",
+            "es": "Cuando el dolor hace que ir a una consulta sea un esfuerzo más."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Demana una visita a casa",
+        "es": "Pide una visita a casa"
+      }
+    },
+    "inclou": {
+      "titol": {
+        "ca": "Què inclou cada visita.",
+        "es": "Qué incluye cada visita."
+      },
+      "intro": {
+        "ca": "No improviso. Cada visita forma part d’un pla.",
+        "es": "No improviso. Cada visita forma parte de un plan."
+      },
+      "llista": [
+        {
+          "titol": {
+            "ca": "Valoració inicial",
+            "es": "Valoración inicial"
+          },
+          "text": {
+            "ca": "Què et passa, què et costa fer i què vols recuperar.",
+            "es": "Qué te pasa, qué te cuesta hacer y qué quieres recuperar."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Tractament",
+            "es": "Tratamiento"
+          },
+          "text": {
+            "ca": "Teràpia manual i tècniques específiques quan ajuden a avançar.",
+            "es": "Terapia manual y técnicas específicas cuando ayudan a avanzar."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Exercicis a casa",
+            "es": "Ejercicios en casa"
+          },
+          "text": {
+            "ca": "Adaptats al que tens a casa: una cadira, una escala, el passadís.",
+            "es": "Adaptados a lo que tienes en casa: una silla, una escalera, el pasillo."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Seguiment",
+            "es": "Seguimiento"
+          },
+          "text": {
+            "ca": "Revisem com avances i ajustem el pla.",
+            "es": "Revisamos cómo avanzas y ajustamos el plan."
+          }
+        }
+      ],
+      "boto": {
+        "ca": "Demana una visita a casa",
+        "es": "Pide una visita a casa"
+      }
+    },
+    "zones": {
+      "titol": {
+        "ca": "Zones i preus.",
+        "es": "Zonas y precios."
+      },
+      "text": {
+        "ca": "Vaig a pobles a uns 20 km de Belianes: Bellpuig, [Tàrrega](ruta:tarrega), Anglesola, Els Omellons, [Arbeca](ruta:arbeca), Vilanova de Bellpuig, [Juneda](ruta:juneda), [les Borges Blanques](ruta:borges) i rodalies.",
+        "es": "Voy a pueblos a unos 20 km de Belianes: Bellpuig, [Tàrrega](ruta:tarrega), Anglesola, Els Omellons, [Arbeca](ruta:arbeca), Vilanova de Bellpuig, [Juneda](ruta:juneda), [les Borges Blanques](ruta:borges) y alrededores."
+      },
+      "noSurt": {
+        "ca": "No surt el teu poble? Pregunta’m.",
+        "es": "¿No sale tu pueblo? Pregúntame."
+      },
+      "taulaTitol": {
+        "ca": "Preu per visita segons la distància",
+        "es": "Precio por visita según la distancia"
+      },
+      "preus": [
+        {
+          "distancia": {
+            "ca": "Fins a 3 km",
+            "es": "Hasta 3 km"
+          },
+          "preu": "55 €"
+        },
+        {
+          "distancia": {
+            "ca": "De 3 a 10 km",
+            "es": "De 3 a 10 km"
+          },
+          "preu": "60 €"
+        },
+        {
+          "distancia": {
+            "ca": "De 10 a 15 km",
+            "es": "De 10 a 15 km"
+          },
+          "preu": "65 €"
+        },
+        {
+          "distancia": {
+            "ca": "De 15 a 20 km",
+            "es": "De 15 a 20 km"
+          },
+          "preu": "70 €"
+        }
+      ],
+      "nota": {
+        "ca": "Preu per visita, desplaçament inclòs. Hi ha packs de 5, 8 i 10 sessions amb preu reduït: pregunta’m el de la teva zona.",
+        "es": "Precio por visita, desplazamiento incluido. Hay packs de 5, 8 y 10 sesiones con precio reducido: pregúntame el de tu zona."
+      },
+      "boto": {
+        "ca": "Pregunta’m si arribo al teu poble",
+        "es": "Pregúntame si llego a tu pueblo"
+      }
+    },
+    "relacionats": {
+      "consulta": {
+        "ca": "Pots desplaçar-te? Consulta de Bellpuig",
+        "es": "¿Puedes desplazarte? Consulta de Bellpuig"
+      },
+      "comTreballo": {
+        "ca": "Com treballo",
+        "es": "Cómo trabajo"
+      }
+    }
+  },
+
+  "pobles": {
+    "comu": {
+      "molles": {
+        "ca": "Camí de navegació",
+        "es": "Ruta de navegación"
+      },
+      "arrel": {
+        "ca": "Fisioteràpia a domicili",
+        "es": "Fisioterapia a domicilio"
+      },
+      "serveis": [
+        {
+          "titol": {
+            "ca": "Rehabilitació després d’una operació",
+            "es": "Rehabilitación después de una operación"
+          },
+          "text": {
+            "ca": "Pròtesi de genoll o maluc, espatlla, fractures. Comencem a casa quan desplaçar-se encara costa.",
+            "es": "Prótesis de rodilla o cadera, hombro, fracturas. Empezamos en casa cuando desplazarse todavía cuesta."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Gent gran i mobilitat",
+            "es": "Personas mayores y movilidad"
+          },
+          "text": {
+            "ca": "Força, equilibri i confiança per caminar amb seguretat i mantenir l’autonomia.",
+            "es": "Fuerza, equilibrio y confianza para caminar con seguridad y mantener la autonomía."
+          }
+        },
+        {
+          "titol": {
+            "ca": "Dolor que no marxa",
+            "es": "Dolor que no se va"
+          },
+          "text": {
+            "ca": "Esquena, coll, genoll o espatlla. Entenem per què no millora i fem un pla.",
+            "es": "Espalda, cuello, rodilla u hombro. Entendemos por qué no mejora y hacemos un plan."
+          }
+        }
+      ],
+      "preuNota": {
+        "ca": "Desplaçament inclòs. Packs de 5, 8 i 10 sessions amb preu reduït.",
+        "es": "Desplazamiento incluido. Packs de 5, 8 y 10 sesiones con precio reducido."
+      },
+      "desplacarTitol": {
+        "ca": "Pots desplaçar-te?",
+        "es": "¿Puedes desplazarte?"
+      },
+      "consultaBoto": {
+        "ca": "Consulta de Bellpuig",
+        "es": "Consulta de Bellpuig"
+      },
+      "tambeTitol": {
+        "ca": "També vaig a",
+        "es": "También voy a"
+      }
+    },
+    "tarrega": {
+      "nom": {
+        "ca": "Tàrrega",
+        "es": "Tàrrega"
+      },
+      "seo": {
+        "titol": {
+          "ca": "Fisioteràpia a domicili a Tàrrega | Fisio Vall del Corb",
+          "es": "Fisioterapia a domicilio en Tàrrega | Fisio Vall del Corb"
+        },
+        "descripcio": {
+          "ca": "Fisioterapeuta a domicili a Tàrrega: rehabilitació després d’una operació, gent gran i dolor que no marxa. 70 € la visita, desplaçament inclòs. Cita per WhatsApp.",
+          "es": "Fisioterapeuta a domicilio en Tàrrega: rehabilitación después de una operación, personas mayores y dolor que no se va. 70 € la visita, desplazamiento incluido. Cita por WhatsApp."
+        }
+      },
+      "h1": {
+        "ca": "Fisioteràpia a domicili a Tàrrega",
+        "es": "Fisioterapia a domicilio en Tàrrega"
+      },
+      "titol": {
+        "ca": "Fisioterapeuta a casa teva, a Tàrrega.",
+        "es": "Fisioterapeuta en tu casa, en Tàrrega."
+      },
+      "text1": {
+        "ca": "Després d’una operació, amb l’edat o amb un dolor que no et deixa sortir, vinc a casa teva a Tàrrega amb un pla clar per recuperar-te.",
+        "es": "Después de una operación, con la edad o con un dolor que no te deja salir, voy a tu casa en Tàrrega con un plan claro para recuperarte."
+      },
+      "text2": {
+        "ca": "Vinc a Tàrrega des de fa 12 anys, sobretot a fer recuperacions després d’una operació i a acompanyar gent gran que vol mantenir l’autonomia.",
+        "es": "Voy a Tàrrega desde hace 12 años, sobre todo para hacer recuperaciones después de una operación y acompañar a personas mayores que quieren mantener su autonomía."
+      },
+      "boto": {
+        "ca": "Demana una visita a Tàrrega",
+        "es": "Pide una visita en Tàrrega"
+      },
+      "quePucFer": {
+        "ca": "Què puc fer per tu a Tàrrega.",
+        "es": "Qué puedo hacer por ti en Tàrrega."
+      },
+      "botoCita": {
+        "ca": "Demana cita a Tàrrega",
+        "es": "Pide cita en Tàrrega"
+      },
+      "preuEtiqueta": {
+        "ca": "Visita a domicili a Tàrrega",
+        "es": "Visita a domicilio en Tàrrega"
+      },
+      "preu": "70 €",
+      "desplacarText": {
+        "ca": "La consulta de Bellpuig és molt a prop de Tàrrega. La visita hi costa 55 €.",
+        "es": "La consulta de Bellpuig está muy cerca de Tàrrega. Allí la visita cuesta 55 €."
+      },
+      "tambe": {
+        "ca": "[Arbeca](ruta:arbeca) · Anglesola · [Bellpuig](ruta:consulta) · [tots els pobles](ruta:domicili)",
+        "es": "[Arbeca](ruta:arbeca) · Anglesola · [Bellpuig](ruta:consulta) · [todos los pueblos](ruta:domicili)"
+      }
+    },
+    "arbeca": {
+      "nom": {
+        "ca": "Arbeca",
+        "es": "Arbeca"
+      },
+      "seo": {
+        "titol": {
+          "ca": "Fisioteràpia a domicili a Arbeca | Fisio Vall del Corb",
+          "es": "Fisioterapia a domicilio en Arbeca | Fisio Vall del Corb"
+        },
+        "descripcio": {
+          "ca": "Fisioterapeuta a domicili a Arbeca: rehabilitació després d’una operació, gent gran i dolor que no marxa. 60 € la visita, desplaçament inclòs. Cita per WhatsApp.",
+          "es": "Fisioterapeuta a domicilio en Arbeca: rehabilitación después de una operación, personas mayores y dolor que no se va. 60 € la visita, desplazamiento incluido. Cita por WhatsApp."
+        }
+      },
+      "h1": {
+        "ca": "Fisioteràpia a domicili a Arbeca",
+        "es": "Fisioterapia a domicilio en Arbeca"
+      },
+      "titol": {
+        "ca": "Fisioterapeuta a casa teva, a Arbeca.",
+        "es": "Fisioterapeuta en tu casa, en Arbeca."
+      },
+      "text1": {
+        "ca": "Després d’una operació, amb l’edat o amb un dolor que no et deixa sortir, vinc a casa teva a Arbeca amb un pla clar per recuperar-te.",
+        "es": "Después de una operación, con la edad o con un dolor que no te deja salir, voy a tu casa en Arbeca con un plan claro para recuperarte."
+      },
+      "text2": {
+        "ca": "Arbeca és a 10 minuts de Belianes: hi arribo ràpid i puc venir a casa teva sempre que calgui.",
+        "es": "Arbeca está a 10 minutos de Belianes: llego rápido y puedo ir a tu casa siempre que haga falta."
+      },
+      "boto": {
+        "ca": "Demana una visita a Arbeca",
+        "es": "Pide una visita en Arbeca"
+      },
+      "quePucFer": {
+        "ca": "Què puc fer per tu a Arbeca.",
+        "es": "Qué puedo hacer por ti en Arbeca."
+      },
+      "botoCita": {
+        "ca": "Demana cita a Arbeca",
+        "es": "Pide cita en Arbeca"
+      },
+      "preuEtiqueta": {
+        "ca": "Visita a domicili a Arbeca",
+        "es": "Visita a domicilio en Arbeca"
+      },
+      "preu": "60 €",
+      "desplacarText": {
+        "ca": "La consulta de Bellpuig és molt a prop d’Arbeca. La visita hi costa 55 €.",
+        "es": "La consulta de Bellpuig está muy cerca de Arbeca. Allí la visita cuesta 55 €."
+      },
+      "tambe": {
+        "ca": "[les Borges Blanques](ruta:borges) · [Juneda](ruta:juneda) · [Tàrrega](ruta:tarrega) · [Bellpuig](ruta:consulta) · [tots els pobles](ruta:domicili)",
+        "es": "[les Borges Blanques](ruta:borges) · [Juneda](ruta:juneda) · [Tàrrega](ruta:tarrega) · [Bellpuig](ruta:consulta) · [todos los pueblos](ruta:domicili)"
+      }
+    },
+    "juneda": {
+      "nom": {
+        "ca": "Juneda",
+        "es": "Juneda"
+      },
+      "seo": {
+        "titol": {
+          "ca": "Fisioteràpia a domicili a Juneda | Fisio Vall del Corb",
+          "es": "Fisioterapia a domicilio en Juneda | Fisio Vall del Corb"
+        },
+        "descripcio": {
+          "ca": "Fisioterapeuta a domicili a Juneda: rehabilitació després d’una operació, gent gran i dolor que no marxa. 70 € la visita, desplaçament inclòs. Cita per WhatsApp.",
+          "es": "Fisioterapeuta a domicilio en Juneda: rehabilitación después de una operación, personas mayores y dolor que no se va. 70 € la visita, desplazamiento incluido. Cita por WhatsApp."
+        }
+      },
+      "h1": {
+        "ca": "Fisioteràpia a domicili a Juneda",
+        "es": "Fisioterapia a domicilio en Juneda"
+      },
+      "titol": {
+        "ca": "Fisioterapeuta a casa teva, a Juneda.",
+        "es": "Fisioterapeuta en tu casa, en Juneda."
+      },
+      "text1": {
+        "ca": "Després d’una operació, amb l’edat o amb un dolor que no et deixa sortir, vinc a casa teva a Juneda amb un pla clar per recuperar-te.",
+        "es": "Después de una operación, con la edad o con un dolor que no te deja salir, voy a tu casa en Juneda con un plan claro para recuperarte."
+      },
+      "text2": {
+        "ca": "A Juneda hi vaig normalment els dimecres. Si et costa desplaçar-te, la visita es fa a casa teva i adaptem els exercicis al que tens a mà.",
+        "es": "A Juneda voy normalmente los miércoles. Si te cuesta desplazarte, la visita se hace en tu casa y adaptamos los ejercicios a lo que tienes a mano."
+      },
+      "boto": {
+        "ca": "Demana una visita a Juneda",
+        "es": "Pide una visita en Juneda"
+      },
+      "quePucFer": {
+        "ca": "Què puc fer per tu a Juneda.",
+        "es": "Qué puedo hacer por ti en Juneda."
+      },
+      "botoCita": {
+        "ca": "Demana cita a Juneda",
+        "es": "Pide cita en Juneda"
+      },
+      "preuEtiqueta": {
+        "ca": "Visita a domicili a Juneda",
+        "es": "Visita a domicilio en Juneda"
+      },
+      "preu": "70 €",
+      "desplacarText": {
+        "ca": "Si et va millor venir, la consulta de Bellpuig és una opció. La visita hi costa 55 €.",
+        "es": "Si te va mejor venir, la consulta de Bellpuig es una opción. Allí la visita cuesta 55 €."
+      },
+      "tambe": {
+        "ca": "[Les Borges Blanques](ruta:borges) · [Arbeca](ruta:arbeca) · [Bellpuig](ruta:consulta) · [tots els pobles](ruta:domicili)",
+        "es": "[Les Borges Blanques](ruta:borges) · [Arbeca](ruta:arbeca) · [Bellpuig](ruta:consulta) · [todos los pueblos](ruta:domicili)"
+      }
+    },
+    "borges": {
+      "nom": {
+        "ca": "Les Borges Blanques",
+        "es": "Les Borges Blanques"
+      },
+      "seo": {
+        "titol": {
+          "ca": "Fisioteràpia a domicili a les Borges Blanques | Fisio Vall del Corb",
+          "es": "Fisioterapia a domicilio en Les Borges Blanques | Fisio Vall del Corb"
+        },
+        "descripcio": {
+          "ca": "Fisioterapeuta a domicili a les Borges Blanques: rehabilitació després d’una operació, gent gran i dolor que no marxa. 65 € la visita, desplaçament inclòs. Cita per WhatsApp.",
+          "es": "Fisioterapeuta a domicilio en Les Borges Blanques: rehabilitación después de una operación, personas mayores y dolor que no se va. 65 € la visita, desplazamiento incluido. Cita por WhatsApp."
+        }
+      },
+      "h1": {
+        "ca": "Fisioteràpia a domicili a les Borges Blanques",
+        "es": "Fisioterapia a domicilio en Les Borges Blanques"
+      },
+      "titol": {
+        "ca": "Fisioterapeuta a casa teva, a les Borges Blanques.",
+        "es": "Fisioterapeuta en tu casa, en Les Borges Blanques."
+      },
+      "text1": {
+        "ca": "Després d’una operació, amb l’edat o amb un dolor que no et deixa sortir, vinc a casa teva a les Borges Blanques amb un pla clar per recuperar-te.",
+        "es": "Después de una operación, con la edad o con un dolor que no te deja salir, voy a tu casa en Les Borges Blanques con un plan claro para recuperarte."
+      },
+      "text2": {
+        "ca": "Visc a 25 minuts de les Borges i hi vinc a fer la recuperació a casa teva, sobretot després d’una operació o per guanyar seguretat en el dia a dia.",
+        "es": "Vivo a 25 minutos de Les Borges y voy a hacer la recuperación en tu casa, sobre todo después de una operación o para ganar seguridad en el día a día."
+      },
+      "boto": {
+        "ca": "Demana una visita a les Borges",
+        "es": "Pide una visita en Les Borges"
+      },
+      "quePucFer": {
+        "ca": "Què puc fer per tu a les Borges.",
+        "es": "Qué puedo hacer por ti en Les Borges."
+      },
+      "botoCita": {
+        "ca": "Demana cita a les Borges",
+        "es": "Pide cita en Les Borges"
+      },
+      "preuEtiqueta": {
+        "ca": "Visita a domicili a les Borges",
+        "es": "Visita a domicilio en Les Borges"
+      },
+      "preu": "65 €",
+      "desplacarText": {
+        "ca": "Si et va millor venir, la consulta de Bellpuig és una opció. La visita hi costa 55 €.",
+        "es": "Si te va mejor venir, la consulta de Bellpuig es una opción. Allí la visita cuesta 55 €."
+      },
+      "tambe": {
+        "ca": "[Juneda](ruta:juneda) · [Arbeca](ruta:arbeca) · [Bellpuig](ruta:consulta) · [tots els pobles](ruta:domicili)",
+        "es": "[Juneda](ruta:juneda) · [Arbeca](ruta:arbeca) · [Bellpuig](ruta:consulta) · [todos los pueblos](ruta:domicili)"
+      }
+    }
+  }
+}

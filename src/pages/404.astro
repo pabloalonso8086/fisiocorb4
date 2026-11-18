@@ -1,0 +1,24 @@
+---
+/** Pàgina d'error. Cloudflare la mostra per a qualsevol adreça inexistent, per això surt en els dos idiomes. */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import { useT, negoci, rutes } from "../i18n";
+const ca = useT("ca");
+const es = useT("es");
+---
+<BaseLayout lang="ca" title={ca.t("comu.error404.titolPagina")} description={ca.t("comu.error404.text")} alternates={{ ca: rutes.inici.ca, es: rutes.inici.es }} noindex>
+  <section class="mx-auto max-w-[900px] px-5 pb-24 pt-16 sm:px-6 lg:pt-24">
+    <div class="drawbar mb-7 h-1.5 w-[68px] bg-groc" aria-hidden="true"></div>
+    <h1 class="h-display rise mb-6 text-[clamp(36px,5vw,56px)]">{ca.t("comu.error404.titol")}</h1>
+    <p class="mb-8 text-xl">{ca.t("comu.error404.text")}</p>
+    <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
+      <Button href={ca.r("inici")}>{ca.t("comu.error404.boto")}</Button>
+      <Button href={negoci.whatsapp} variant="enllac">{ca.t("comu.whatsapp.demanaCita")}</Button>
+    </div>
+    <div lang="es" class="mt-14 border-t border-line pt-8">
+      <p class="mb-2 font-display text-2xl font-extrabold uppercase">{es.t("comu.error404.titol")}</p>
+      <p class="mb-5 text-lg">{es.t("comu.error404.text")}</p>
+      <Button href={es.r("inici")} variant="enllac">{es.t("comu.error404.boto")}</Button>
+    </div>
+  </section>
+</BaseLayout>

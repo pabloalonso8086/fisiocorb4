@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import { useT, negoci, type Lang } from "../i18n";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string } }
+const { lang, alternates } = Astro.props;
+const { t, h, p, raw } = useT(lang);
+
+const fases = raw("comTreballo.fases.llista") as any[];
+const tu = raw("comTreballo.compromis.tu") as any[];
+const jo = raw("comTreballo.compromis.jo") as any[];
+const valors = raw("comTreballo.sobreMi.valors") as any[];
+const formacio = raw("comTreballo.sobreMi.formacio") as any[];
+---
+<BaseLayout lang={lang} title={t("comTreballo.seo.titol")} description={t("comTreballo.seo.descripcio")} alternates={alternates} actiu="comTreballo">
+  <!-- HERO: EL BUCLE -->
+  <section id="com-treballo" class="mx-auto max-w-site px-5 pb-16 pt-12 sm:px-8 lg:pb-24 lg:pt-[72px] xl:px-20">
+    <div class="mb-7 flex items-center gap-4">
+      <div class="drawbar h-1.5 w-14 shrink-0 bg-blau" aria-hidden="true"></div>
+      <h1 class="font-display text-[15px] font-bold uppercase tracking-[0.3em]">{t("comTreballo.hero.h1")}</h1>
+    </div>
+    <p class="h-display rise mb-10 max-w-[1000px] text-[clamp(40px,5.2vw,76px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("comTreballo.hero.titol")} />
+    <div class="rise grid max-w-[1100px] gap-6 text-xl leading-normal sm:text-[22px] md:grid-cols-2 md:gap-12" style="--d:.3s">
+      <p>{t("comTreballo.hero.p1")}</p>
+      <p>{t("comTreballo.hero.p2")}</p>
+    </div>
+  </section>
+
+  <!-- LES 4 FASES -->
+  <section class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="reveal">
+        <Bar />
+        <h2 class="h-display mb-12 text-[clamp(32px,3.4vw,50px)]" set:html={h("comTreballo.fases.titol")} />
+      </div>
+      <ol class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10">
+        {fases.map((f, i) => (
+          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
+            <p class="mb-4 font-display text-[44px] font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mb-2.5 font-display text-[21px] font-extrabold uppercase">{p(f.titol)}</h3>
+            <p class="text-[17px] leading-relaxed">{p(f.text)}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-11"><Button href={negoci.whatsapp} variant="groc">{t("comTreballo.fases.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- QUÈ FARÀS TU / QUÈ NO FARÉ -->
+  <section class="mx-auto flex max-w-site flex-wrap gap-14 px-5 py-16 sm:px-8 lg:gap-16 lg:py-24 xl:px-20">
+    <div class="reveal min-w-0 flex-[1_1_400px]">
+      <Bar color="verd" />
+      <h2 class="h-display mb-8 text-[clamp(32px,3.4vw,50px)]">{t("comTreballo.compromis.tuTitol")}</h2>
+      <ul class="border-b border-line">
+        {tu.map((x) => (
+          <li class="flex gap-4 border-t border-line py-5 text-lg leading-normal">
+            <svg class="mt-0.5 shrink-0 text-verd" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            <span>{p(x)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="reveal min-w-0 flex-[1_1_400px]" style="--d:.15s">
+      <Bar color="magenta" />
+      <h2 class="h-display mb-8 text-[clamp(32px,3.4vw,50px)]">{t("comTreballo.compromis.joTitol")}</h2>
+      <ul class="border-b border-line">
+        {jo.map((x) => (
+          <li class="flex gap-4 border-t border-line py-5 text-lg leading-normal">
+            <svg class="mt-0.5 shrink-0 text-magenta" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            <span>{p(x)}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10"><Button href={negoci.whatsapp}>{t("comTreballo.compromis.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="scroll-mt-24 bg-btn text-white">
+    <div class="mx-auto flex max-w-site flex-wrap items-stretch">
+      <div class="reveal h-[360px] min-w-0 flex-[1_1_520px] overflow-hidden sm:h-[480px] lg:h-auto lg:min-h-[520px]">
+        <img src="/img/oscar-gonzalez-fisioterapeuta.webp" alt={t("comTreballo.sobreMi.imatgeAlt")} loading="lazy" class="block size-full object-cover object-[center_25%]" />
+      </div>
+      <div class="flex-[1.2_1_560px] px-5 py-14 sm:px-8 lg:py-20 xl:px-20">
+        <div class="reveal">
+          <Bar />
+          <h2 class="h-display mb-6 text-[clamp(32px,3.4vw,50px)]">{t("comTreballo.sobreMi.titol")}</h2>
+          <p class="mb-4 text-lg leading-relaxed sm:text-xl">{t("comTreballo.sobreMi.p1")}</p>
+          <p class="mb-8 text-lg leading-relaxed sm:text-xl">{t("comTreballo.sobreMi.p2")}</p>
+        </div>
+        <dl class="mb-8 grid gap-6 sm:grid-cols-3">
+          {valors.map((v, i) => (
+            <div class="reveal border-t-2 border-groc pt-4" style={`--d:${i * 0.12}s`}>
+              <dt class="mb-2 font-display font-extrabold uppercase tracking-[0.1em]">{p(v.nom)}</dt>
+              <dd class="text-[17px] leading-normal text-white/85">{p(v.text)}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="reveal mb-8 text-lg leading-relaxed">{t("comTreballo.sobreMi.p3")}</p>
+        <div class="reveal">
+          <h3 class="mb-4 font-display text-xl font-extrabold uppercase">{t("comTreballo.sobreMi.formacioTitol")}</h3>
+          <ul class="mb-10 space-y-2.5 text-[17px] leading-normal text-white/90">
+            {formacio.map((x) => (
+              <li class="flex gap-3"><span class="mt-[0.6em] size-1.5 shrink-0 bg-groc" aria-hidden="true"></span><span>{p(x)}</span></li>
+            ))}
+          </ul>
+          <Button href={negoci.whatsapp} variant="groc">{t("comTreballo.sobreMi.boto")}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

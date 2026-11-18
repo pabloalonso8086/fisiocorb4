@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Bar from "../components/Bar.astro";
+import Stars from "../components/Stars.astro";
+import Faq from "../components/Faq.astro";
+import ServeiIcon from "../components/ServeiIcon.astro";
+import Arrow from "../components/Arrow.astro";
+import { useT, negoci, type Lang } from "../i18n";
+import { localBusiness, faqPage } from "../lib/schema";
+
+interface Props { lang: Lang; alternates: { ca: string; es: string } }
+const { lang, alternates } = Astro.props;
+const { t, h, hf, p, raw, r } = useT(lang);
+
+const fases = raw("inici.fases.llista") as any[];
+const serveis = raw("inici.serveis.llista") as any[];
+const valors = raw("inici.sobreMi.valors") as any[];
+const ressenyes = raw("inici.ressenyes.llista") as any[];
+const faq = (raw("inici.faq.llista") as any[]).map((f) => ({ pregunta: hf(f.pregunta), resposta: hf(f.resposta), preguntaText: p(f.pregunta), respostaText: p(f.resposta).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") }));
+---
+<BaseLayout
+  lang={lang}
+  title={t("inici.seo.titol")}
+  description={t("inici.seo.descripcio")}
+  alternates={alternates}
+  actiu="inici"
+  jsonld={[localBusiness(lang), faqPage(faq.map((f) => ({ q: f.preguntaText, a: f.respostaText })))]}
+>
+  <!-- HERO -->
+  <section id="inici" class="mx-auto flex max-w-site flex-wrap items-stretch">
+    <div class="flex flex-[1_1_520px] flex-col justify-center px-5 py-12 sm:px-8 lg:py-16 xl:pl-20 xl:pr-10">
+      <h1 class="rise mb-6 font-display text-[13px] font-bold uppercase leading-relaxed tracking-[0.22em] text-ink-soft sm:text-[15px]">{t("inici.hero.h1")}</h1>
+      <p class="h-display rise text-[clamp(40px,5.2vw,76px)] leading-none tracking-[-0.015em]" style="--d:.12s" set:html={h("inici.hero.titol")} />
+      <div class="drawbar mb-7 mt-10 h-1.5 w-[68px] bg-groc" aria-hidden="true"></div>
+      <p class="rise mb-10 max-w-[540px] text-xl leading-[1.45] sm:text-[22px]" style="--d:.35s">{t("inici.hero.text")}</p>
+      <div class="rise flex flex-wrap items-center gap-x-7 gap-y-4" style="--d:.5s">
+        <Button href={negoci.whatsapp}>{t("inici.hero.boto")}</Button>
+        <Button href={r("comTreballo")} variant="enllac">{t("inici.hero.enllac")}</Button>
+      </div>
+    </div>
+    <div class="relative h-[320px] min-w-0 flex-[1.3_1_600px] self-center overflow-hidden sm:h-[440px] lg:h-[600px]">
+      <img src="/img/fisioterapeuta-valoracio-genoll.webp" alt={t("inici.hero.imatgeAlt")} fetchpriority="high" class="kenburns block size-full object-cover object-[60%_center]" />
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="mx-auto mt-6 flex max-w-site flex-wrap items-center">
+    <div class="reveal h-[260px] min-w-0 flex-[1.3_1_600px] overflow-hidden sm:h-[360px] lg:h-[440px]">
+      <img src="/img/dolor-esquena-hort-urgell.webp" alt={t("inici.problema.imatgeAlt")} loading="lazy" class="block size-full object-cover object-[30%_center]" />
+    </div>
+    <div class="reveal flex-[1_1_440px] px-5 py-10 sm:px-8 xl:px-20 xl:py-12">
+      <Bar color="verd" />
+      <h2 class="h-display mb-6 text-[clamp(32px,3.4vw,50px)]" set:html={h("inici.problema.titol")} />
+      <p class="mb-4 text-xl leading-normal">{t("inici.problema.p1")}</p>
+      <p class="text-xl leading-normal">{t("inici.problema.p2")}</p>
+      <div class="mt-8"><Button href={negoci.whatsapp}>{t("inici.problema.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- COM TREBALLO -->
+  <section id="com-treballo" class="mt-16 bg-sand lg:mt-[72px]">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <Bar color="blau" />
+          <h2 class="h-display text-[clamp(32px,3.4vw,50px)]" set:html={h("inici.fases.titol")} />
+        </div>
+        <p class="max-w-[460px] text-[19px] leading-normal">{t("inici.fases.intro")}</p>
+      </div>
+      <ol class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10">
+        {fases.map((f, i) => (
+          <li class="reveal group border-t-2 border-ink pt-6" style={`--d:${i * 0.15}s`}>
+            <p class="mb-4 font-display text-[44px] font-extrabold leading-none transition-colors duration-300 group-hover:text-groc" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="mb-2.5 font-display text-[21px] font-extrabold uppercase">{p(f.titol)}</h3>
+            <p class="text-[17px] leading-relaxed">{p(f.text)}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-11 flex flex-wrap items-center gap-x-7 gap-y-4">
+        <Button href={negoci.whatsapp}>{t("inici.fases.boto")}</Button>
+        <Button href={r("comTreballo")} variant="enllac">{t("inici.fases.enllac")}</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVEIS -->
+  <section id="serveis" class="mx-auto max-w-site px-5 pb-16 pt-14 sm:px-8 xl:px-20">
+    <div class="mb-9 flex items-center gap-5">
+      <div class="drawbar-view reveal-trigger h-1.5 w-14 shrink-0 bg-groc" aria-hidden="true"></div>
+      <h2 class="font-display text-[15px] font-bold uppercase tracking-[0.3em]">{t("inici.serveis.titol")}</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+      {serveis.map((s, i) => (
+        <div class:list={["reveal group pb-2 sm:px-6 lg:px-10", i > 0 && "border-t border-line pt-8 sm:border-t-0 sm:pt-0", i % 2 === 1 && "sm:border-l sm:border-line", i > 0 && "lg:border-l lg:border-line", i === 0 && "sm:pl-0", i === 2 && "sm:pl-0 lg:pl-10", i === 3 && "lg:pr-0"]} style={`--d:${i * 0.1}s`}>
+          <div class="transition-transform duration-300 group-hover:-translate-y-1"><ServeiIcon name={s.icona} /></div>
+          <h3 class="mb-3 mt-4 font-display text-2xl font-extrabold leading-[1.1]" set:html={hf(s.titol)} />
+          <p class="mb-3.5 text-lg leading-[1.45]">{p(s.text)}</p>
+          {s.enllacos.map((e: any) => (
+            <a href={r(e.ruta)} class="link-arrow flex min-h-11 items-center gap-2.5 text-base font-bold no-underline">{p(e.text)} <Arrow size={18} /></a>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- QUI T'ATÉN -->
+  <section id="sobre-mi" class="mx-auto flex max-w-site flex-wrap items-center">
+    <div class="reveal h-[300px] min-w-0 flex-[1_1_600px] overflow-hidden sm:h-[400px] lg:h-[480px]">
+      <img src="/img/oscar-gonzalez-fisio-vall-del-corb.webp" alt={t("inici.sobreMi.imatgeAlt")} loading="lazy" class="block size-full object-cover object-[center_30%]" />
+    </div>
+    <div class="reveal flex-[1_1_500px] px-5 py-12 sm:px-8 xl:px-20 xl:py-14">
+      <Bar color="magenta" />
+      <h2 class="h-display mb-5 text-[clamp(32px,3.4vw,50px)]" set:html={h("inici.sobreMi.titol")} />
+      <p class="mb-6 text-xl leading-normal">{t("inici.sobreMi.text")}</p>
+      <dl class="mb-6 border-b border-line">
+        {valors.map((v) => (
+          <div class="border-t border-line py-3.5 text-[17px] leading-normal">
+            <dt class="mr-2.5 inline font-display font-extrabold uppercase tracking-[0.1em]">{p(v.nom)}</dt>
+            <dd class="inline">{p(v.text)}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mb-7 text-base leading-normal text-ink-soft">{t("inici.sobreMi.acreditacio")}</p>
+      <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
+        <Button href={negoci.whatsapp} variant="groc">{t("inici.sobreMi.boto")}</Button>
+        <Button href={r("comTreballo", "sobre-mi")} variant="enllac">{t("inici.sobreMi.enllac")}</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESSENYES -->
+  <section id="ressenyes" class="bg-sand">
+    <div class="mx-auto max-w-site px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+        <div class="reveal">
+          <Bar color="blau" />
+          <h2 class="h-display text-[clamp(32px,3.4vw,50px)]" set:html={h("inici.ressenyes.titol")} />
+        </div>
+        <div class="flex items-center gap-4">
+          <p class="font-display text-[44px] font-extrabold tabular-nums" data-count={negoci.notaGoogle as string}>{negoci.notaGoogle as string}</p>
+          <div>
+            <Stars label={t("comu.estrelles")} animate />
+            <p class="mt-1.5 text-base text-ink-soft">{t("inici.ressenyes.numRessenyes")}</p>
+          </div>
+        </div>
+      </div>
+      <!-- AQUÍ: widget de ressenyes de Google (Trustindex o similar) -->
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-7">
+        {ressenyes.map((rv, i) => (
+          <figure class="reveal flex flex-col gap-4.5 bg-white p-7 shadow-[0_1px_0_rgba(20,20,20,.04)] transition-shadow duration-300 hover:shadow-[0_12px_30px_rgba(20,20,20,.08)] sm:p-9" style={`--d:${i * 0.12}s`}>
+            <Stars size={18} label={t("comu.estrelles")} />
+            <blockquote class="font-display text-[22px] font-bold leading-[1.3] sm:text-2xl">{p(rv.text)}</blockquote>
+            <figcaption class="mt-auto text-[15px] text-ink-soft">{rv.autor} · {t("comu.ressenyaGoogle")}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="mt-9 flex flex-wrap gap-x-8 gap-y-2">
+        <Button href={negoci.googleRessenyes} variant="enllac">{t("inici.ressenyes.veureTotes")}</Button>
+        <Button href={negoci.googleRessenyes} variant="enllacSuau" arrow={false}>{t("inici.ressenyes.deixaRessenya")}</Button>
+      </div>
+      <div class="mt-10"><Button href={negoci.whatsapp}>{t("inici.ressenyes.boto")}</Button></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto flex max-w-site flex-wrap gap-14 px-5 py-16 sm:px-8 lg:py-[88px] xl:px-20">
+    <div class="reveal flex-[1_1_340px]">
+      <Bar color="verd" />
+      <h2 class="h-display mb-5 text-[clamp(32px,3.4vw,50px)]" set:html={h("inici.faq.titol")} />
+      <p class="max-w-[380px] text-[19px] leading-[1.45]">{t("inici.faq.intro")}</p>
+    </div>
+    <div class="flex-[2_1_600px]">
+      <Faq items={faq} />
+      <div class="mt-10"><Button href={negoci.whatsapp}>{t("inici.faq.boto")}</Button></div>
+    </div>
+  </section>
+</BaseLayout>
