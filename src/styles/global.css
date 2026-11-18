@@ -257,15 +257,15 @@
 .servei-card:hover, .servei-card:focus-within { transform: translateY(-4px); box-shadow: 0 14px 34px rgb(20 20 20 / .09); }
 .servei-card:hover::before, .servei-card:focus-within::before { transform: scaleX(1); }
 
-/* Mà del logo en gran com a marca d'aigua. marca-ma.png és la silueta ampliada de logo_ma.png;
-   s'usa com a màscara perquè el color i la intensitat es controlin des d'aquí. */
+/* Mà del logo en gran com a marca d'aigua. Usa el favicon vectorial (/favicon.svg) com a màscara:
+   se'n pren només la silueta, i el color i la intensitat es controlen des d'aquí. */
 .marca-ma {
   position: absolute; z-index: -1; pointer-events: none;
-  width: clamp(340px, 48vw, 720px); aspect-ratio: 688 / 612;
+  width: clamp(340px, 48vw, 720px); aspect-ratio: 121.46 / 109.72;
   right: -14%; bottom: -18%;
   background: var(--color-ink); opacity: .05;
-  -webkit-mask: url(/img/marca-ma.png) center / contain no-repeat;
-          mask: url(/img/marca-ma.png) center / contain no-repeat;
+  -webkit-mask: url(/favicon.svg) center / contain no-repeat;
+          mask: url(/favicon.svg) center / contain no-repeat;
   transform: rotate(-14deg);
 }
 @media (min-width: 1024px) { .marca-ma { right: -4%; bottom: -22%; } }
