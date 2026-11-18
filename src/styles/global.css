@@ -94,8 +94,108 @@
 
 /* Capçalera fixa que es redueix en fer scroll */
 #site-header.scrolled { box-shadow: 0 4px 18px rgba(20,20,20,.08); }
-#site-header.scrolled .logo { height: 56px; }
-@media (max-width: 1023px) { #site-header.scrolled .logo { height: 48px; } }
+
+/* Logo en dues peces (logo_ma + logo_text).
+   La caixa ocupa tota l'alçada de la capçalera (marges negatius = padding vertical de la fila)
+   i és la que en defineix l'alçada.
+   Sense scroll: mà gran darrere del text, text a la part inferior amb un petit marge.
+   Amb scroll: composició del logo original. Mesures del logo original (unitats de 61 d'alt):
+   mà 69×61 a (0,0), text 179×34 a (70,23); conjunt 249×61.
+   L'animació va lligada al scroll: el JS (BaseLayout) posa a #site-header
+   --p (capçalera), --pt (text) i --pm (mà), de 0 a 1, i aquí s'interpola entre els dos estats.
+   El text comença una mica abans que la mà, per donar sensació que cada peça busca el seu lloc.
+   Les peces es mouen només amb transform (translate + scale). Escales precalculades:
+   mida amb scroll / mida sense scroll. */
+/* --p registrada com a número perquè es pugui animar (alçada de la barra amb «reduir moviment») */
+@property --p { syntax: "<number>"; inherits: true; initial-value: 0; }
+#site-header {
+  --p: 0; --pt: 0; --pm: 0;
+  /* Mòbil — sense scroll */
+  --box-h: 88px; --box-w: 170px; --pad: 12px;
+  --text-w: 170px; --text-y: 45.7px;              /* 88 − 10 de marge − 32,3 d'alt del text */
+  --ma-w: 72.4px; --ma-x: 48.8px; --ma-y: 4px;     /* mà de 64 d'alt, centrada sobre el text */
+  /* Mòbil — amb scroll (logo de 42 d'alt, capçalera de 72) */
+  --box-h-s: 72px; --box-w-s: 171.4px;
+  --text-s: .725; --text-x-s: 48.2px; --text-y-s: 30.8px;
+  --ma-s: .6563; --ma-x-s: 0px; --ma-y-s: 15px;
+  /* La capçalera s'encongeix, però el marge inferior compensa la diferència: el contingut
+     de la pàgina no salta mentre dura l'animació */
+  margin-bottom: calc((var(--box-h) - var(--box-h-s)) * var(--p));
+}
+@media (min-width: 1024px) {
+  #site-header {
+    /* Escriptori — sense scroll */
+    --box-h: 116px; --box-w: 221px; --pad: 16px;
+    --text-w: 221px; --text-y: 60px;               /* 116 − 14 de marge − 42 d'alt del text */
+    --ma-w: 99.5px; --ma-x: 60.7px; --ma-y: 6px;   /* mà de 88 d'alt */
+    /* Escriptori — amb scroll (logo de 50 d'alt, capçalera de 88) */
+    --box-h-s: 88px; --box-w-s: 204.1px;
+    --text-s: .6639; --text-x-s: 57.4px; --text-y-s: 37.9px;
+    --ma-s: .5682; --ma-x-s: 0px; --ma-y-s: 19px;
+  }
+}
+.logo-box {
+  position: relative; display: block;
+  height: calc(var(--box-h) + (var(--box-h-s) - var(--box-h)) * var(--p));
+  width: calc(var(--box-w) + (var(--box-w-s) - var(--box-w)) * var(--p));
+  margin-block: calc(-1 * var(--pad));
+}
+.logo-box img {
+  position: absolute; top: 0; left: 0; max-width: none; height: auto;
+  transform-origin: 0 0;
+  will-change: transform;
+  /* Transició curta només per arrodonir els salts de la roda del ratolí o del teclat */
+  transition: transform .18s ease-out;
+}
+.logo-box .logo-ma {
+  z-index: 0; width: var(--ma-w);
+  transform:
+    translate(calc(var(--ma-x) + (var(--ma-x-s) - var(--ma-x)) * var(--pm)),
+              calc(var(--ma-y) + (var(--ma-y-s) - var(--ma-y)) * var(--pm)))
+    scale(calc(1 + (var(--ma-s) - 1) * var(--pm)));
+}
+.logo-box .logo-text {
+  z-index: 1; width: var(--text-w);
+  transform:
+    translate(calc(var(--text-x-s) * var(--pt)),
+              calc(var(--text-y) + (var(--text-y-s) - var(--text-y)) * var(--pt)))
+    scale(calc(1 + (var(--text-s) - 1) * var(--pt)));
+}
+/* Còpia compacta, sempre en la posició final; només es mostra amb «reduir moviment» */
+.logo-box img.logo-c { display: none; }
+.logo-box .logo-ma.logo-c   { transform: translate(var(--ma-x-s), var(--ma-y-s)) scale(var(--ma-s)); }
+.logo-box .logo-text.logo-c { transform: translate(var(--text-x-s), var(--text-y-s)) scale(var(--text-s)); }
+
+/* Hero en mòbil i tauleta: la foto passa a ser el fons, amb un degradat fosc i el text en blanc.
+   Classes: .hero-fons (secció), .hero-fons-text (columna de text), .hero-fons-img (columna de la foto).
+   Dins de @layer utilities perquè pugui guanyar les utilitats de Tailwind (algunes amb !important). */
+@layer utilities {
+  @media (max-width: 1023.98px) {
+    /* La foto va a dalt, a tot l'ample i sense retallar (alçada segons la seva proporció);
+       la part de baix es fon amb el fons fosc i el text comença a sobre d'aquest fos. */
+    .hero-fons { position: relative; isolation: isolate; background: var(--color-night); }
+    .hero-fons > .hero-fons-img {
+      position: relative; order: -1; flex: 0 0 100%;
+      height: auto; align-self: auto; background: var(--color-night);
+    }
+    .hero-fons > .hero-fons-img > img { height: auto; object-fit: fill; }
+    .hero-fons > .hero-fons-img::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgb(20 20 20 / 0) 25%, rgb(20 20 20 / .75) 55%, var(--color-night) 90%);
+    }
+    /* El text puja fins a la meitat de la foto. --hero-r = alçada/amplada de la foto (per defecte .57);
+       com que la foto ocupa tot l'ample, la seva alçada és --hero-r × 100vw. --hero-solapa = fracció de la foto tapada. */
+    .hero-fons > .hero-fons-text {
+      position: relative; z-index: 1; padding-top: 0; color: #fff;
+      margin-top: calc(-1 * var(--hero-solapa, .5) * var(--hero-r, .57) * 100vw);
+      text-shadow: 0 1px 12px rgb(0 0 0 / .45);
+    }
+    .hero-fons-text .text-ink-soft { color: rgb(255 255 255 / .85); }
+    .hero-fons-text a:not(.btn), .hero-fons-text a:not(.btn):hover { color: #fff; }
+    /* El botó fosc es perdria sobre el fons fosc: passa a groc */
+    .hero-fons-text .btn.bg-btn, .hero-fons-text .btn.bg-btn:hover { background: var(--color-groc); color: var(--color-ink) !important; }
+  }
+}
 
 /* Text llarg (blog i textos legals) */
 .prose-fisio { font-size: 19px; line-height: 1.7; }
@@ -122,6 +222,11 @@
   .js .reveal, .js .stars-fill svg, .js .drawbar-view { opacity: 1 !important; transform: none !important; transition: none !important; }
   .kenburns, .drawbar, .rise, .faq details[open] .faq-body { animation: none !important; }
   .wa-pulse::after { display: none; }
+  /* Sense desplaçaments: fos encreuat entre el logo gran i la còpia compacta (.logo-c),
+     tots dos guiats per --p, que s'anima alhora que l'alçada de la barra */
+  #site-header { transition: box-shadow .3s, --p .35s ease-in-out; }
+  .logo-box img { transition: none !important; opacity: calc(1 - var(--p)); }
+  .logo-box img.logo-c { display: block; opacity: var(--p); }
   .btn, .btn:hover { transform: none; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

@@ -28,8 +28,14 @@ const langs = [
 
 <header id="site-header" class="sticky top-0 z-50 bg-paper/95 backdrop-blur-[2px] transition-shadow duration-300">
   <div class="mx-auto flex max-w-site items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:py-4 xl:px-20">
-    <a href={r("inici")} aria-label={t("comu.logoInici")} class="inline-flex shrink-0">
-      <img src={negoci.logo} alt={t("comu.logoAlt")} width="168" height="84" class="logo h-16 w-auto transition-[height] duration-300 lg:h-[84px]" />
+    <!-- Logo en dues peces: sense scroll, la mà queda darrere del text (ajustat a baix);
+         en fer scroll es recol·loquen (mà a l'esquerra, text a la dreta) i formen el logo original -->
+    <a href={r("inici")} aria-label={t("comu.logoInici")} class="logo-box shrink-0">
+      <img src="/img/logo_ma.png" alt="" width="69" height="61" class="logo-ma" />
+      <img src="/img/logo_text.png" alt={t("comu.logoAlt")} width="179" height="34" class="logo-text" />
+      <!-- Còpia en posició compacta: només per al fos encreuat amb «reduir moviment» -->
+      <img src="/img/logo_ma.png" alt="" width="69" height="61" class="logo-ma logo-c" aria-hidden="true" />
+      <img src="/img/logo_text.png" alt="" width="179" height="34" class="logo-text logo-c" aria-hidden="true" />
     </a>
 
     <!-- Escriptori -->
