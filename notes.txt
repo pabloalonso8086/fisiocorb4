@@ -1,0 +1,44 @@
+1. Identidad de marca (lo que más se nota)
+
+  - Sistema tipográfico más marcado. Titulares mucho más grandes y apretados en las secciones clave, con frases cortas y rotundas del tipo «Primero entender. Después
+    tratar.». Una marca dice pocas cosas y grandes; un blog explica mucho.
+  - Usar el amarillo con intención. Pon el amarillo solo en lo importante: el subrayado de una palabra clave del titular, los números y el botón principal. Si aparece
+    en todas partes, deja de significar nada.
+  - Un elemento gráfico propio. Puede ser la mano del logo como recurso de fondo, enorme y muy sutil, recortando alguna sección. Eso es lo que hace que una web se
+    reconozca sin ver el logo.
+  - Fotos con un tratamiento único. Usa el mismo grado de color en todas, por ejemplo un poco desaturadas y cálidas. Ahora cada foto tiene un estilo distinto, y eso es
+    muy de blog.
+
+  2. Prueba social con aspecto de empresa
+
+  - Franja de cifras justo después del hero: «4,9 ★ Google · +X pacientes · X años · Bellpuig y comarca», con el contador que ya tienes. Da sensación de solidez al
+    instante.
+  - Testimonios como protagonistas. Haz un carrusel o una cuadrícula con cita grande, nombre, pueblo y tipo de problema («dolor lumbar», «rodilla tras operación»). Que
+    no queden escondidos en un rincón.
+  - Logos o menciones, si los hay: colegio de fisioterapeutas, formación, clubes deportivos o ciclistas con los que trabaje. Para Bici encaja muy bien.
+
+  3. Estructura y flujo
+
+  - El proceso en 3 o 4 pasos visuales (Valoración → Diagnóstico → Tratamiento → Seguimiento), con número grande y línea que se va dibujando al hacer scroll. Comunica
+  - Precios claros en tarjetas, si se pueden mostrar: «Primera visita · 50 min · X €». Para la gente local da mucha confianza.
+
+  4. Microinteracciones (moderno sin pasarse)
+
+  - Revelado de titulares por líneas o palabras al entrar en pantalla, en lugar del fade genérico.
+  - Parallax muy suave en las fotos de sección: la imagen se mueve un 5–10 % más lenta que el scroll. Es lo mismo que acabamos de hacer con la foto fija, pero más
+    ligero.
+  - Botones con estado hover elaborado, con un relleno amarillo que entra de izquierda a derecha.
+  - Todo debe respetar «reducir movimiento», como ya hacemos con el logo.
+
+  5. Contenido que vende como marca
+
+  - El blog como «Consejos» o «Guías», con categorías por zona del cuerpo y una portada con artículo destacado. Ahora mismo parece un blog personal; así pasa a ser un
+    recurso de la clínica.
+  - Página o sección «Primera visita»: qué traer, cuánto dura y qué pasa. Reduce mucho la fricción y es típico de clínicas serias.
+  - FAQ con buen diseño: acordeón limpio con iconos +/–.
+
+  6. Detalles que delatan «amateur»
+
+  - Footer más rico: mapa, horario, contacto, redes y número de colegiado. El número de colegiado es muy importante para la confianza.
+  - Botón de cita persistente en la barra y estado claro de «abierto ahora / cerrado».
+  - Espaciado consistente: mismos márgenes verticales entre secciones y mismo ancho de lectura. Es invisible, pero es lo que más separa lo profesional de lo amateur.

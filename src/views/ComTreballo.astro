@@ -49,7 +49,7 @@ const formacio = raw("comTreballo.sobreMi.formacio") as any[];
   </section>
 
   <!-- QUÈ FARÀS TU / QUÈ NO FARÉ -->
-  <section class="mx-auto flex max-w-site flex-wrap gap-14 px-5 py-16 sm:px-8 lg:gap-16 lg:py-24 xl:px-20">
+  <section class="mx-auto flex max-w-site flex-wrap lg:flex-nowrap gap-14 px-5 py-16 sm:px-8 lg:gap-16 lg:py-24 xl:px-20">
     <div class="reveal min-w-0 flex-[1_1_400px]">
       <Bar color="verd" />
       <h2 class="h-display mb-8 text-[clamp(32px,3.4vw,50px)]">{t("comTreballo.compromis.tuTitol")}</h2>
@@ -78,10 +78,17 @@ const formacio = raw("comTreballo.sobreMi.formacio") as any[];
   </section>
 
   <!-- SOBRE MI -->
-  <section id="sobre-mi" class="scroll-mt-24 bg-btn text-white">
-    <div class="mx-auto flex max-w-site flex-wrap items-stretch">
-      <div class="reveal h-[360px] min-w-0 flex-[1_1_520px] overflow-hidden sm:h-[480px] lg:h-auto lg:min-h-[520px]">
-        <img src="/img/oscar-gonzalez-fisioterapeuta.webp" alt={t("comTreballo.sobreMi.imatgeAlt")} loading="lazy" class="block size-full object-cover object-[center_25%]" />
+  <section id="sobre-mi" class="relative isolate scroll-mt-24 overflow-clip bg-btn text-white">
+    <!-- Mà del logo com a marca d'aigua. overflow-clip (i no hidden) perquè la foto sticky continuï funcionant -->
+    <div class="marca-ma marca-ma--clar" aria-hidden="true"></div>
+    <div class="mx-auto flex max-w-site flex-wrap lg:flex-nowrap items-stretch">
+      <!-- En escriptori la foto és «sticky»: ocupa l'alçada de la finestra (sota la capçalera compacta, 88px)
+           i es queda quieta mentre el text puja, fins que s'acaba la secció.
+           L'overflow-hidden va a la capa interior: en un avantpassat trencaria el sticky. -->
+      <div class="reveal min-w-0 flex-[1_1_520px]">
+        <div class="h-[220px] overflow-hidden sm:h-[300px] lg:sticky lg:top-[88px] lg:h-[calc(100dvh-88px)] lg:max-h-full lg:min-h-[520px]">
+          <img src="/img/oscar-gonzalez-fisioterapeuta.webp" alt={t("comTreballo.sobreMi.imatgeAlt")} loading="lazy" class="block size-full object-cover object-[center_25%]" />
+        </div>
       </div>
       <div class="flex-[1.2_1_560px] px-5 py-14 sm:px-8 lg:py-20 xl:px-20">
         <div class="reveal">
