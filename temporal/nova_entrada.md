@@ -1,0 +1,1 @@
+El dolor muscular afecta amb els anys perque et fas gran
